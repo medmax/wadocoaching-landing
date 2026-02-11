@@ -41,7 +41,7 @@
                     <li><a href="#services" class="nav-link">Services</a></li>
                     <li><a href="#temoignages" class="nav-link">Témoignages</a></li>
                     <li><a href="#articles" class="nav-link">Articles</a></li>
-                    <li><a href="#contact" class="nav-cta">Réserver un appel</a></li>
+                    <li><a href="#contact" class="nav-cta">Clarifions vos enjeux</a></li>
                 </ul>
             </nav>
 
@@ -63,7 +63,35 @@
 
     <!-- SECTIONS PLACEHOLDER pour tester le scroll -->
     <!-- On les remplacera par le vrai contenu plus tard -->
-    <section class="placeholder" id="hero">Hero — prochaine étape</section>
+    <!-- ============================================
+         SECTION HERO
+         ============================================
+         Structure :
+         <section> → conteneur de la section entière
+           └── <div class="hero-content"> → centre le contenu
+                ├── <h1> → titre principal (un seul h1 par page pour le SEO)
+                ├── <p>  → sous-titre
+                └── <div class="hero-buttons"> → les 2 boutons côte à côte
+    -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+
+            <h1 class="hero-title">De la sérénité dans la complexité</h1>
+
+            <p class="hero-subtitle">
+                Faites de vos interactions professionnelles un levier de croissance.<br>
+                Coaching individuel, d'équipe et formation.
+            </p>
+
+            <!-- Les 2 boutons CTA -->
+            <!-- <br> dans le sous-titre = retour à la ligne -->
+            <div class="hero-buttons">
+                <a href="#contact" class="btn-primary">Clarifions vos enjeux</a>
+                <a href="#services" class="btn-secondary">Explorer les accompagnements</a>
+            </div>
+
+        </div>
+    </section>
     <section class="placeholder alt" id="qui-suis-je">Qui suis-je</section>
     <section class="placeholder" id="services">Services</section>
     <section class="placeholder alt" id="temoignages">Témoignages</section>

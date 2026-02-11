@@ -224,6 +224,129 @@ html {
 
 
 /* -----------------------------------------------
+   SECTION HERO
+   -----------------------------------------------
+   Le Hero prend toute la hauteur de l'écran (100vh).
+   Le contenu est centré au milieu avec flexbox. */
+
+.hero {
+    min-height: calc(100vh - var(--header-height));
+
+    /* === IMAGE DE FOND AVEC OVERLAY ===
+       L'astuce : on empile DEUX fonds avec une virgule :
+       1. Un dégradé bleu foncé semi-transparent (l'overlay)
+       2. L'image de fond en dessous
+
+       rgba(21, 32, 52, 0.85) = la couleur #152034 avec 85% d'opacité
+       → l'image est visible mais le texte reste très lisible.
+       Jouez avec le 0.85 : plus c'est haut, plus c'est foncé.
+       0.7 = image plus visible / 0.9 = presque que le bleu */
+    background:
+        linear-gradient(rgba(21, 32, 52, 0.85), rgba(21, 32, 52, 0.85)),
+        url('images/hero-bg.jpg');
+
+    /* background-size: cover → l'image couvre TOUTE la section
+       sans se déformer. Elle sera rognée si besoin. */
+    background-size: cover;
+
+    /* background-position: center → le centre de l'image est toujours visible
+       même si elle est rognée sur les bords */
+    background-position: center;
+
+    /* background-attachment: fixed → l'image reste fixe quand on scrolle
+       Ça crée un léger effet "parallax". Optionnel mais élégant. */
+    background-attachment: fixed;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+}
+
+/* Le bloc de contenu à l'intérieur du hero */
+.hero-content {
+    max-width: 800px;             /* le texte ne s'étale pas trop sur grand écran */
+    text-align: center;           /* tout le texte est centré */
+}
+
+/* Le titre principal — <h1>
+   Un seul <h1> par page ! C'est important pour le SEO.
+   Google regarde le h1 pour comprendre le sujet de la page. */
+.hero-title {
+    font-family: var(--font-heading);
+    font-size: 3.5rem;             /* grand ! c'est le titre principal */
+    color: var(--color-white);
+    line-height: 1.2;              /* resserre les lignes (par défaut c'est 1.6) */
+
+    /* margin-bottom = espace EN DESSOUS de l'élément */
+    margin-bottom: 1.5rem;
+}
+
+/* Le sous-titre */
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);   /* blanc semi-transparent = plus doux */
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+/* Le conteneur des 2 boutons — flex pour les mettre côte à côte */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;                     /* espace entre les 2 boutons */
+    justify-content: center;       /* centrés horizontalement */
+
+    /* flex-wrap: wrap → si l'écran est trop petit,
+       les boutons passent l'un sous l'autre au lieu de déborder */
+    flex-wrap: wrap;
+}
+
+/* === BOUTONS RÉUTILISABLES ===
+   On crée 2 classes de boutons qu'on pourra réutiliser partout :
+   .btn-primary = le bouton principal (plein, coloré)
+   .btn-secondary = le bouton secondaire (transparent, bordure) */
+
+.btn-primary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--color-accent);
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-2px);   /* monte légèrement */
+}
+
+/* Bouton secondaire = transparent avec une bordure blanche */
+.btn-secondary {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: transparent;
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 8px;
+
+    /* border: épaisseur style couleur */
+    border: 2px solid rgba(255, 255, 255, 0.4);
+
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    border-color: var(--color-white);
+    background: rgba(255, 255, 255, 0.1);   /* léger fond blanc au survol */
+}
+
+
+/* -----------------------------------------------
    SECTIONS PLACEHOLDER (temporaire)
    -----------------------------------------------
    Juste pour tester le scroll. On supprimera tout ça. */
@@ -343,5 +466,26 @@ html {
 
     .nav-link:hover {
         color: var(--color-primary);
+    }
+
+    /* --- HERO mobile --- */
+    /* Sur petit écran, on réduit les tailles de texte */
+    .hero-title {
+        font-size: 2.2rem;        /* plus petit que les 3.5rem du desktop */
+    }
+
+    .hero-subtitle {
+        font-size: 1.05rem;
+    }
+
+    /* Les boutons s'empilent verticalement sur mobile */
+    .hero-buttons {
+        flex-direction: column;    /* l'un au-dessus de l'autre */
+        align-items: center;       /* centrés */
+    }
+
+    /* Désactive le parallax sur mobile (ne fonctionne pas sur iOS) */
+    .hero {
+        background-attachment: scroll;
     }
 }
