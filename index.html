@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WadoCoaching</title>
+
+    <!-- GOOGLE FONTS -->
+    <!-- On importe 2 polices depuis Google (gratuit) :
+         - DM Serif Display : élégante, pour les titres
+         - DM Sans : moderne et lisible, pour le texte courant
+         Le navigateur les télécharge automatiquement -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Notre fichier CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+
+            <!-- LOGO : maintenant c'est une image -->
+            <!-- <img> = balise pour afficher une image
+                 src = le chemin vers le fichier (relatif à index.html)
+                 alt = texte alternatif (accessibilité + SEO)
+                       → affiché si l'image ne charge pas
+                       → lu par les lecteurs d'écran pour malvoyants -->
+            <a href="#" class="logo">
+                <img src="images/logo.svg" alt="WadoCoaching" class="logo-img">
+            </a>
+
+            <!-- NAVIGATION -->
+            <!-- <nav> = balise sémantique qui dit "ceci est un menu" -->
+            <!-- <ul> = liste non ordonnée (unordered list) -->
+            <!-- <li> = un élément de la liste (list item) -->
+            <!-- <a href="#services"> = lien vers la section id="services" -->
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#qui-suis-je" class="nav-link">Qui suis-je</a></li>
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#temoignages" class="nav-link">Témoignages</a></li>
+                    <li><a href="#articles" class="nav-link">Articles</a></li>
+                    <li><a href="#contact" class="nav-cta">Réserver un appel</a></li>
+                </ul>
+            </nav>
+
+            <!-- BOUTON BURGER (visible uniquement sur mobile)
+                 C'est un <button> avec 3 <span> = 3 traits horizontaux.
+                 Quand on clique, le JS ajoutera la classe "active"
+                 et le CSS transformera les 3 traits en croix (×).
+
+                 aria-label = accessibilité : les lecteurs d'écran
+                 pour malvoyants liront "Menu" au lieu de rien. -->
+            <button class="burger" id="burger" aria-label="Menu">
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+                <span class="burger-line"></span>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- SECTIONS PLACEHOLDER pour tester le scroll -->
+    <!-- On les remplacera par le vrai contenu plus tard -->
+    <section class="placeholder" id="hero">Hero — prochaine étape</section>
+    <section class="placeholder alt" id="qui-suis-je">Qui suis-je</section>
+    <section class="placeholder" id="services">Services</section>
+    <section class="placeholder alt" id="temoignages">Témoignages</section>
+    <section class="placeholder" id="articles">Articles</section>
+    <section class="placeholder alt" id="contact">Contact</section>
+
+    <!-- JAVASCRIPT
+         On le met juste avant </body> pour 2 raisons :
+         1. Le HTML se charge D'ABORD → la page s'affiche plus vite
+         2. Le JS a besoin que les éléments HTML existent déjà
+            pour pouvoir les cibler (getElementById, etc.) -->
+    <script src="script.js"></script>
+</body>
+</html>

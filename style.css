@@ -1,0 +1,347 @@
+/* === STYLE.CSS === */
+/* Le HTML = la structure (les murs), le CSS = la déco (la peinture) */
+
+
+/* -----------------------------------------------
+   VARIABLES CSS (la charte graphique)
+   -----------------------------------------------
+   :root = la racine du document (= <html>)
+   On y déclare des variables avec --nom-variable
+   Ensuite on les utilise partout avec : var(--nom-variable)
+
+   POURQUOI ? Si demain vous voulez changer la couleur principale,
+   vous changez UNE seule ligne ici au lieu de 30 dans le fichier.
+*/
+:root {
+    /* --- Couleurs principales --- */
+    --color-primary: #152034;          /* Bleu très foncé — header, sections foncées */
+    --color-primary-light: #11397C;    /* Bleu moyen — liens, accents secondaires */
+
+    /* --- Couleur d'accent (CTA, boutons, éléments clés) --- */
+    --color-accent: #1ABAEA;           /* Bleu clair vif — le bleu du logo */
+    --color-accent-hover: #11397C;     /* Bleu moyen au survol */
+
+    /* --- Textes --- */
+    --color-dark: #000000;             /* Noir — titres forts */
+    --color-text: #152034;             /* Bleu foncé — texte courant */
+    --color-text-light: #67768E;       /* Gris bleuté — texte secondaire */
+
+    /* --- Fonds et bordures --- */
+    --color-bg: #F2F5F7;              /* Gris bleu clair — fond de page */
+    --color-bg-alt: #F9F6FE;          /* Lavande clair — fond sections alternées */
+    --color-white: #FFFFFF;
+    --color-border: #E0E4E8;          /* Bordures subtiles */
+
+    /* --- Typographie --- */
+    --font-heading: 'DM Serif Display', Georgia, serif;
+    --font-body: 'DM Sans', system-ui, sans-serif;
+
+    /* --- Dimensions --- */
+    --header-height: 80px;
+    --max-width: 1200px;
+}
+
+
+/* -----------------------------------------------
+   RESET
+   -----------------------------------------------
+   On remet à zéro les styles par défaut du navigateur.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* -----------------------------------------------
+   BODY
+   -----------------------------------------------*/
+body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+
+    /* IMPORTANT : le header est en position: fixed, donc il est
+       "sorti" du flux. Le contenu se retrouve CACHÉ dessous.
+       padding-top = hauteur du header → le contenu commence SOUS lui */
+    padding-top: var(--header-height);
+}
+
+
+/* -----------------------------------------------
+   HEADER
+   -----------------------------------------------*/
+header {
+    background: var(--color-primary);
+    padding: 0 2rem;
+
+    /* === POSITION FIXED ===
+       position: fixed → l'élément est RETIRÉ du flux normal de la page
+       et se colle à la fenêtre du navigateur.
+       Il ne bouge plus quand on scrolle.
+
+       top: 0  → collé en haut
+       left: 0 → collé à gauche
+       width: 100% → prend toute la largeur de l'écran
+
+       z-index: 1000 → passe AU-DESSUS de tout le reste.
+       Plus le chiffre est grand, plus l'élément est "devant".
+       Sans ça, le contenu passerait par-dessus le header en scrollant. */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-inner {
+    max-width: var(--max-width);           /* ← variable ! */
+    margin: 0 auto;
+    height: var(--header-height);          /* ← variable ! */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* -----------------------------------------------
+   LOGO
+   -----------------------------------------------*/
+.logo {
+    text-decoration: none;
+    /* display: flex + align-items: center
+       → si jamais on ajoute du texte à côté du logo, il sera centré */
+    display: flex;
+    align-items: center;
+}
+
+/* Le style de l'image logo */
+.logo-img {
+    height: 45px;            /* on fixe la hauteur, la largeur s'adapte */
+    width: auto;             /* garde les proportions du SVG */
+}
+
+
+/* -----------------------------------------------
+   NAVIGATION
+   -----------------------------------------------*/
+.nav-menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    /* position: relative est NÉCESSAIRE ici.
+       Pourquoi ? Parce que le ::after qu'on va créer utilise
+       position: absolute, et absolute se positionne par rapport
+       à son PREMIER parent qui a "position: relative".
+       Sans ça, le trait se placerait n'importe où. */
+    position: relative;
+
+    /* padding-bottom = petit espace sous le texte pour le trait */
+    padding-bottom: 4px;
+
+    /* transition = "quand la couleur change, anime sur 0.3 secondes"
+       ease = commence doucement, accélère, puis ralentit */
+    transition: color 0.3s ease;
+}
+
+/* ::after = un PSEUDO-ÉLÉMENT
+   C'est un élément "fantôme" créé en CSS, sans toucher au HTML.
+   On s'en sert ici pour dessiner un trait sous le lien.
+
+   L'astuce :
+   - Par défaut : width: 0 (invisible)
+   - Au hover : width: 100% (le trait apparaît)
+   - transition : ça anime le changement → effet de glissement */
+.nav-link::after {
+    content: '';                /* obligatoire pour que ::after existe */
+    position: absolute;        /* se positionne par rapport au .nav-link */
+    bottom: 0;                 /* collé en bas du lien */
+    left: 0;                   /* part de la gauche */
+    width: 0;                  /* invisible par défaut */
+    height: 2px;               /* épaisseur du trait */
+    background: var(--color-accent);   /* bleu clair */
+    transition: width 0.3s ease;       /* anime la largeur */
+}
+
+/* Au survol : le trait s'étend à 100% de la largeur du lien */
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    color: var(--color-white);
+}
+
+/* Bouton CTA "Réserver un appel" */
+.nav-cta {
+    text-decoration: none;
+    background: var(--color-accent);
+    color: var(--color-white);
+    padding: 0.65rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+
+    /* transition = anime le changement de background ET le déplacement */
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.nav-cta:hover {
+    background: var(--color-accent-hover);  /* Passe du bleu clair au bleu moyen */
+
+    /* translateY(-2px) = le bouton "monte" de 2 pixels
+       Ça donne un effet subtil de "ce bouton est cliquable" */
+    transform: translateY(-2px);
+}
+
+
+/* -----------------------------------------------
+   SCROLL DOUX
+   -----------------------------------------------
+   Quand on clique sur un lien ancre (#services),
+   au lieu de SAUTER à la section, la page GLISSE
+   doucement. Une seule ligne suffit ! */
+html {
+    scroll-behavior: smooth;
+
+    /* Quand on clique #services, le navigateur scrolle pour que
+       la section touche le HAUT de l'écran. Problème : le header
+       fixe cache le début de la section !
+       scroll-padding-top = "laisse cet espace en haut avant la section" */
+    scroll-padding-top: var(--header-height);
+}
+
+
+/* -----------------------------------------------
+   SECTIONS PLACEHOLDER (temporaire)
+   -----------------------------------------------
+   Juste pour tester le scroll. On supprimera tout ça. */
+.placeholder {
+    min-height: 100vh;            /* 100vh = 100% de la hauteur de l'écran */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-text-light);
+    background: var(--color-white);
+}
+
+/* .alt = fond alterné pour distinguer les sections */
+.placeholder.alt {
+    background: var(--color-bg);
+}
+
+
+/* -----------------------------------------------
+   BOUTON BURGER
+   -----------------------------------------------
+   3 traits horizontaux qui deviennent une croix ×
+   Caché sur desktop, visible sur mobile (voir @media plus bas) */
+
+.burger {
+    display: none;             /* CACHÉ sur desktop */
+    flex-direction: column;    /* les 3 lignes s'empilent verticalement */
+    gap: 5px;                  /* espace entre chaque ligne */
+    background: none;          /* pas de fond */
+    border: none;              /* pas de bordure */
+    cursor: pointer;           /* curseur "main" au survol */
+    padding: 0.5rem;
+}
+
+.burger-line {
+    width: 26px;
+    height: 2.5px;
+    background: var(--color-white);
+    border-radius: 2px;
+    /* transition → anime la rotation des lignes (burger → croix) */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* === ANIMATION BURGER → CROIX ===
+   Quand le JS ajoute la classe "active" :
+   - Ligne 1 : tourne à 45° et descend → forme le \
+   - Ligne 2 : disparaît (opacity: 0)
+   - Ligne 3 : tourne à -45° et monte → forme le /
+   Résultat : ×
+
+   nth-child(1) = le 1er enfant, nth-child(2) = le 2ème, etc. */
+.burger.active .burger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active .burger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active .burger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+/* -----------------------------------------------
+   RESPONSIVE MOBILE
+   -----------------------------------------------
+   @media (max-width: 768px) = "si l'écran fait 768px ou moins"
+   → c'est une tablette ou un téléphone
+   Tout ce qui est à l'INTÉRIEUR ne s'applique que sur mobile !
+   768px est un breakpoint classique (la largeur d'un iPad). */
+
+@media (max-width: 768px) {
+
+    /* Sur mobile, on AFFICHE le burger */
+    .burger {
+        display: flex;
+    }
+
+    /* Le menu devient un panneau latéral (sidebar)
+       qui couvre le côté droit de l'écran */
+    .nav-menu {
+        position: fixed;       /* collé à l'écran */
+        top: 0;
+        right: 0;             /* collé à DROITE */
+        width: 75%;           /* prend 75% de la largeur */
+        max-width: 320px;     /* mais jamais plus de 320px */
+        height: 100vh;        /* toute la hauteur de l'écran */
+
+        background: var(--color-white);
+        flex-direction: column;    /* liens empilés verticalement */
+        justify-content: center;   /* centrés verticalement */
+        align-items: center;
+        gap: 2rem;
+        box-shadow: -4px 0 30px rgba(0, 0, 0, 0.15);
+
+        /* Par défaut : HORS de l'écran (poussé à droite) */
+        transform: translateX(100%);
+        /* cubic-bezier = une courbe d'animation personnalisée
+           Celle-ci donne un effet de "rebond" naturel */
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Quand le JS ajoute la classe "open" :
+       le menu REVIENT à sa position normale → il slide depuis la droite */
+    .nav-menu.open {
+        transform: translateX(0);
+    }
+
+    /* Sur mobile, les liens sont foncés (fond blanc) */
+    .nav-link {
+        color: var(--color-text);
+        font-size: 1.1rem;
+    }
+
+    .nav-link:hover {
+        color: var(--color-primary);
+    }
+}
