@@ -568,4 +568,22 @@ html {
         background-attachment: scroll;
     }
 
+    /* --- Section Problème mobile --- */
+    .problem-layout {
+        flex-direction: column;
+    }
+
+    .problem-image {
+        min-height: 280px;
+    }
+
+    .problem-content {
+        padding: 3rem 2rem;
+    }
+
+    .problem-heading {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
 }
