@@ -414,6 +414,126 @@ html {
 
 
 /* -----------------------------------------------
+   SECTION PROBLÈME — « Ce que vous traversez »
+   ----------------------------------------------- */
+   .section-problem {
+    background: var(--color-white);
+    padding: 6rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Ligne décorative en pointillé */
+.problem-deco-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.section-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* En-tête de section (réutilisable) */
+.section-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 4rem;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-primary-light);
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
+/* Les 3 cartes côte à côte */
+.problem-cards {
+    display: flex;
+    gap: 2rem;
+}
+
+.problem-card {
+    flex: 1;
+    background: var(--color-bg);
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    border-left: 4px solid var(--color-accent);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-left-color 0.3s ease;
+}
+
+.problem-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(21, 32, 52, 0.08);
+    background: var(--color-primary);
+    border-left-color: var(--color-white);
+}
+
+.problem-card:hover .problem-card-img {
+    color: var(--color-white);
+}
+
+.problem-card:hover .problem-card-title {
+    color: var(--color-white);
+}
+
+.problem-card:hover .problem-card-text {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.problem-card:hover .problem-card-promise {
+    color: var(--color-accent);
+}
+
+
+.problem-card-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--color-accent);
+    transition: border-color 0.3s ease;
+}
+.problem-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    color: var(--color-primary-light);
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.problem-card-text {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.problem-card-promise {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--color-accent);
+    line-height: 1.5;
+}
+
+/* -----------------------------------------------
    RESPONSIVE MOBILE
    -----------------------------------------------
    @media (max-width: 768px) = "si l'écran fait 768px ou moins"
@@ -487,5 +607,14 @@ html {
     /* Désactive le parallax sur mobile (ne fonctionne pas sur iOS) */
     .hero {
         background-attachment: scroll;
+    }
+
+    /* --- Section Problème mobile --- */
+    .problem-cards {
+        flex-direction: column;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
     }
 }
