@@ -412,84 +412,79 @@ html {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
+
 /* -----------------------------------------------
-   SECTION PROBLÈME — Design premium minimaliste
+   SECTION PROBLÈME — B2B / Fond foncé
    ----------------------------------------------- */
-.section-problem {
-    background: var(--color-white);
-    padding: 0;
-    overflow: hidden;
+   .section-problem {
+    background: var(--color-primary);
+    padding: 6rem 2rem;
 }
 
-.section-inner {
+.problem-inner {
     max-width: var(--max-width);
     margin: 0 auto;
-    position: relative;
-    z-index: 1;
 }
 
-/* Layout 2 colonnes asymétriques */
-.problem-layout {
-    max-width: none;
-    display: flex;
-    align-items: stretch;
-    gap: 0;
-
-}
-
-/* COLONNE GAUCHE — Image */
-.problem-image {
-    flex: 2;
-    min-width: 0;
-    background-size: cover;
-    background-position: center;
-    min-height: 500px;
-    opacity: 0.4;
-}
-
-.problem-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.6;
-}
-
-/* COLONNE DROITE — Texte */
-.problem-content {
-    flex: 3;
-    padding: 5rem 4rem;
+/* En-tête centré */
+.problem-header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 5rem;
 }
 
 .problem-heading {
     font-family: var(--font-heading);
-    font-size: 2.4rem;
-    color: var(--color-accent);
+    font-size: 2.5rem;
+    color: var(--color-white);
     line-height: 1.25;
-    margin-bottom: 3rem;
 }
 
-/* Chaque bloc texte séparé par une ligne fine */
+/* Grille 3 colonnes */
+.problem-grid {
+    display: flex;
+    gap: 3rem;
+}
+
+/* Chaque bloc */
 .problem-block {
-    padding: 1.75rem 0;
-    border-top: 1px solid var(--color-border);
+    flex: 1;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.problem-block:last-of-type {
-    border-bottom: 1px solid var(--color-border);
-    margin-bottom: 2.5rem;
+/* Numéros stylisés */
+.problem-number {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--color-accent);
+    line-height: 1;
+    display: block;
+    margin-bottom: 1.25rem;
 }
 
 .problem-block-title {
     font-family: var(--font-heading);
     font-size: 1.25rem;
-    color: var(--color-primary-light);
-    margin-bottom: 0.6rem;
+    color: var(--color-white);
+    margin-bottom: 0.75rem;
 }
 
 .problem-block-text {
     font-size: 0.95rem;
-    color: var(--color-text-light);
+    color: rgba(255, 255, 255, 0.55);
     line-height: 1.75;
+}
+
+/* Phrase de transition en bas de section */
+.problem-transition {
+    text-align: center;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.35rem;
+    color: var(--color-accent);
+    margin-top: 4rem;
+    line-height: 1.5;
 }
 
 /* -----------------------------------------------
@@ -567,23 +562,18 @@ html {
     .hero {
         background-attachment: scroll;
     }
-
     /* --- Section Problème mobile --- */
-    .problem-layout {
+    .problem-grid {
         flex-direction: column;
-    }
-
-    .problem-image {
-        min-height: 280px;
-    }
-
-    .problem-content {
-        padding: 3rem 2rem;
+        gap: 2rem;
     }
 
     .problem-heading {
         font-size: 1.8rem;
-        margin-bottom: 2rem;
+    }
+
+    .problem-number {
+        font-size: 2.2rem;
     }
 
 }
