@@ -37,6 +37,9 @@
             <!-- <a href="#services"> = lien vers la section id="services" -->
             <nav>
                 <ul class="nav-menu" id="navMenu">
+                    <li class="nav-close-item">
+                        <button class="nav-close" id="navClose" aria-label="Fermer le menu">&#10005;</button>
+                    </li>
                     <li><a href="#qui-suis-je" class="nav-link">Qui suis-je</a></li>
                     <li><a href="#services" class="nav-link">Services</a></li>
                     <li><a href="#temoignages" class="nav-link">Témoignages</a></li>
@@ -127,17 +130,141 @@
         </div>
     </section>
 
-    <section class="placeholder alt" id="qui-suis-je">Qui suis-je</section>
-    <section class="placeholder" id="services">Services</section>
+ <!-- ============================================
+         SECTION SERVICES — COACHING (fond gris clair)
+         ============================================ -->
+         <section class="section-coaching" id="services">
+            <div class="coaching-inner">
+    
+                <div class="coaching-header">
+                    <span class="section-label">Coaching</span>
+                    <h2 class="coaching-heading">Faire émérger les solutions</h2>
+                    <p class="coaching-subtitle">Le coaching crée l'espace pour révéler les options possibles les structurer et les mettre en action.</p>
+                </div>
+    
+                <!-- COACHING DE MANAGER -->
+                <div class="coaching-block">
+                    <div class="coaching-block-img">
+                        <img src="images/coaching-manager.jpg" alt="Coaching de manager">
+                    </div>
+                    <div class="coaching-block-content">
+                        <h3 class="coaching-block-title">Coaching de manager</h3>
+                        <p class="coaching-block-text">Un accompagnement individuel dans un cadre confidentiel pour prendre du recul, affirmer sa posture et développer un leadership aligné avec sa personnalité.</p>
+                        <p class="coaching-block-text">Objectifs et indicateurs de réussite définis ensemble dès le départ. Chaque parcours est unique, construit autour de la réalité du manager et de son contexte.</p>
+                    </div>
+                </div>
+    
+                <!-- COACHING D'ÉQUIPE -->
+                <div class="coaching-block reverse">
+                    <div class="coaching-block-img">
+                        <img src="images/coaching-equipe.jpg" alt="Coaching d'équipe">
+                    </div>
+                    <div class="coaching-block-content">
+                        <h3 class="coaching-block-title">Coaching d'équipe</h3>
+                        <p class="coaching-block-text">Des ateliers conçus sur-mesure pour permettre à une équipe de travailler sur son propre fonctionnement. L'équipe est observée en tant que système, pas comme une somme d'individus.</p>
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+    
+        <!-- ============================================
+             SECTION SERVICES — FORMATION (fond blanc)
+             ============================================ -->
+        <section class="section-formation">
+            <div class="formation-inner">
+    
+                <div class="formation-header">
+                    <span class="section-label">Formation</span>
+                    <h2 class="formation-heading">Un tabouret à 4 pieds pour ajuster sa posture managériale</h2>
+                    <p class="formation-subtitle">Quatre savoir-être fondamentaux pour asseoir une posture managériale solide et authentique.</p>
+                    <p class="formation-intro">À mi-chemin entre coaching et formation, les ateliers de pratiques réflexives font pratiquer les savoir-être essentiels du manager. Apprendre en faisant, progresser ensemble.</p>
+                </div>
+    
+                <!-- LES 4 PIEDS DÉTAILLÉS -->
+                <div class="pieds-grid">
+                    <div class="pied-card">
+                        <div class="pied-card-header">
+                            <h3 class="pied-card-title">Adopter l'écoute active</h3>
+                            <span class="pied-card-badge">Une histoire de posture</span>
+                        </div>
+                        <p class="pied-card-text">Développer une qualité de présence et d'attention qui permet à l'autre de se sentir entendu. L'écoute active est le socle de toute relation managériale saine.</p>
+                    </div>
+                    <div class="pied-card">
+                        <div class="pied-card-header">
+                            <h3 class="pied-card-title">Cultiver le feedback</h3>
+                            <span class="pied-card-badge">Une histoire d'intention</span>
+                        </div>
+                        <p class="pied-card-text">Apprendre à formuler des retours constructifs, ancrés dans les faits et portés par une intention bienveillante. Le feedback devient un levier de progression, pas une source de tension.</p>
+                    </div>
+                    <div class="pied-card">
+                        <div class="pied-card-header">
+                            <h3 class="pied-card-title">Oser l'assertivité</h3>
+                            <span class="pied-card-badge">Une histoire de valeurs</span>
+                        </div>
+                        <p class="pied-card-text">S'affirmer avec respect. Dire les choses avec clarté sans agressivité, poser un cadre sans rigidité. L'assertivité est le courage managérial au quotidien.</p>
+                    </div>
+                    <div class="pied-card">
+                        <div class="pied-card-header">
+                            <h3 class="pied-card-title">Favoriser l'autonomie</h3>
+                            <span class="pied-card-badge">Une histoire de confiance</span>
+                        </div>
+                        <p class="pied-card-text">Créer les conditions pour que chacun puisse agir, décider et progresser par lui-même. Développer l'autonomie, c'est apprendre à lâcher prise sans abandonner, à faire confiance sans se désengager — et à faire grandir son équipe plutôt que de la maintenir sous dépendance.</p>
+                    </div>
+                </div>
+    
+                <p class="formation-note">Activables à la carte ou en parcours complet selon les enjeux.</p>
+    
+            </div>
+        </section>
+    
+
+    <!-- ============================================
+         SECTION QUI SUIS-JE
+         ============================================ -->
+    <section class="section-about" id="qui-suis-je">
+        <div class="about-inner">
+
+            <h2 class="about-heading">Qui suis-je ?</h2>
+
+            <!-- LIGNE 1 : photo gauche, texte droite -->
+            <!-- LIGNE 2 : texte gauche, photo droite -->
+            <div class="about-grid">
+
+                <!-- LIGNE 1 : photo gauche, texte droite -->
+                <div class="about-card">
+                    <div class="about-card-img">
+                        <img src="images/Photo1.jpg" alt="Photo mehdi">
+                    </div>
+                    <div class="about-card-content">
+                        <p class="about-card-text">Quinze ans dans le secteur bancaire, consultant en transformation digitale puis manager. J'ai piloté des projets complexes, travaillé dans des environnements agiles, accompagné des équipes dans des contextes d'incertitude permanente. C'est sur le terrain que j'ai compris ce que le management demande vraiment : une posture, une présence, une capacité à tenir face à ce qu'on ne maîtrise pas — et le droit de ne pas avoir toutes les réponses. Cette conviction, je l'ai vécue avant de la mettre en mots. Elle est devenue le fondement de ma pratique de coach — depuis 2023. Pour moi, bien accompagner c'est aussi accompagner de façon éthique et rigoureuse — c'est pourquoi j'adhère à l'ICF et suis certifié ACC, avec plus de 200 heures d'accompagnement.</p>
+                    </div>
+                </div>
+
+                <!-- LIGNE 2 : texte gauche, photo droite -->
+                <div class="about-card reverse">
+                    <div class="about-card-img">
+                        <img src="images/Photo2.JPG" alt="Photo mehdi">
+                    </div>
+                    <div class="about-card-content">
+                        <p class="about-card-text">Mon travail repose sur une conviction simple : les ressources sont déjà là. Ce que je cherche, ce n'est pas à apporter des réponses de l'extérieur — c'est à créer les conditions pour qu'elles émergent. Cela demande de l'écoute, de la confiance, et une relation suffisamment solide pour regarder ensemble ce qu'on ne voyait pas. Les angles morts, les habitudes qui freinent, les ressorts qu'on n'avait pas identifiés — on les explore pas à pas, sans précipitation. J'accompagne des managers en prise de poste, des équipes en tension, des professionnels qui veulent changer quelque chose dans leur façon d'exercer. Chaque parcours est unique — mon intention reste la même : vous accompagner à définir et atteindre votre prochain cap.</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- BLOC 3 : Pourquoi Wado ? -->
+            <div class="about-wado">
+                <h3 class="about-wado-title">Pourquoi Wado ?</h3>
+                <blockquote class="about-wado-quote">Wado vient du karaté — une discipline que j'ai pratiquée pendant plus de dix ans. Wado ryu : la voie de la paix. Non pas l'absence de difficulté, mais un esprit calme et clair capable de s'adapter à ce qui vient. C'est aussi l'image que je retiens de la méthode GTD, que je pratique au quotidien — l'esprit comme l'eau du lac, d'où la goutte dans le logo. Le W, enfin, c'est le M de mon prénom retourné : un rappel que l'accompagnement regarde les deux faces de ce qui vous permet d'avancer — vos forces et vos ressources, mais aussi vos freins et vos craintes.</blockquote>
+            </div>
+
+        </div>
+    </section>
     <section class="placeholder alt" id="temoignages">Témoignages</section>
     <section class="placeholder" id="articles">Articles</section>
-    <section class="placeholder alt" id="contact">Contact</section>
 
-    <!-- JAVASCRIPT
-         On le met juste avant </body> pour 2 raisons :
-         1. Le HTML se charge D'ABORD → la page s'affiche plus vite
-         2. Le JS a besoin que les éléments HTML existent déjà
-            pour pouvoir les cibler (getElementById, etc.) -->
+
     <script src="script.js"></script>
 </body>
 </html>

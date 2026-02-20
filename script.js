@@ -28,6 +28,13 @@ burger.addEventListener('click', function() {
     navMenu.classList.toggle('open');
 });
 
+// Fermer le menu avec le bouton × dans le panneau
+const navClose = document.getElementById('navClose');
+navClose.addEventListener('click', function() {
+    burger.classList.remove('active');
+    navMenu.classList.remove('open');
+});
+
 // Fermer le menu quand on clique sur un lien
 // querySelectorAll('.nav-link') → sélectionne TOUS les éléments avec cette classe
 // forEach() → fait quelque chose pour CHACUN d'entre eux
