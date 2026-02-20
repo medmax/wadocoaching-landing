@@ -207,6 +207,34 @@ header {
 
 
 /* -----------------------------------------------
+   BURGER MENU
+   ----------------------------------------------- */
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-white);
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animation burger → X */
+.burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.burger.open span:nth-child(2) { opacity: 0; }
+.burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+
+/* -----------------------------------------------
    SCROLL DOUX
    -----------------------------------------------
    Quand on clique sur un lien ancre (#services),
@@ -253,9 +281,9 @@ html {
        même si elle est rognée sur les bords */
     background-position: center;
 
-    /* background-attachment: fixed → l'image reste fixe quand on scrolle
-       Ça crée un léger effet "parallax". Optionnel mais élégant. */
-    background-attachment: fixed;
+    /* background-attachment: scroll — on évite fixed qui crée une couche GPU
+       sur macOS/Chrome pouvant bloquer les clics dans toute la page */
+    background-attachment: scroll;
 
     display: flex;
     align-items: center;
@@ -367,68 +395,6 @@ html {
 }
 
 
-/* -----------------------------------------------
-   BOUTON FERMER LE MENU (croix dans le panneau)
-   -----------------------------------------------
-   Caché sur desktop, visible uniquement sur mobile */
-.nav-close-item {
-    display: none;
-}
-
-.nav-close {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: var(--color-text);
-    padding: 0.5rem;
-    line-height: 1;
-}
-
-/* -----------------------------------------------
-   BOUTON BURGER
-   -----------------------------------------------
-   3 traits horizontaux qui deviennent une croix ×
-   Caché sur desktop, visible sur mobile (voir @media plus bas) */
-
-.burger {
-    display: none;             /* CACHÉ sur desktop */
-    flex-direction: column;    /* les 3 lignes s'empilent verticalement */
-    gap: 5px;                  /* espace entre chaque ligne */
-    background: none;          /* pas de fond */
-    border: none;              /* pas de bordure */
-    cursor: pointer;           /* curseur "main" au survol */
-    padding: 0.5rem;
-}
-
-.burger-line {
-    width: 26px;
-    height: 2.5px;
-    background: var(--color-white);
-    border-radius: 2px;
-    /* transition → anime la rotation des lignes (burger → croix) */
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-/* === ANIMATION BURGER → CROIX ===
-   Quand le JS ajoute la classe "active" :
-   - Ligne 1 : tourne à 45° et descend → forme le \
-   - Ligne 2 : disparaît (opacity: 0)
-   - Ligne 3 : tourne à -45° et monte → forme le /
-   Résultat : ×
-
-   nth-child(1) = le 1er enfant, nth-child(2) = le 2ème, etc. */
-.burger.active .burger-line:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.burger.active .burger-line:nth-child(2) {
-    opacity: 0;
-}
-
-.burger.active .burger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
 
 
 /* -----------------------------------------------
@@ -461,24 +427,22 @@ html {
 /* Grille 3 colonnes */
 .problem-grid {
     display: flex;
-    gap: 3rem;
+    gap: 2rem;
 }
 
-/* Chaque bloc */
+/* Chaque bloc — carte */
 .problem-block {
     flex: 1;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 2.5rem;
+    border-radius: 16px;
 }
 
-/* Numéros stylisés */
-.problem-number {
-    font-family: var(--font-heading);
-    font-size: 3rem;
-    color: var(--color-accent);
-    line-height: 1;
-    display: block;
-    margin-bottom: 1.25rem;
+.problem-block:nth-child(odd) {
+    background: var(--color-white);
+}
+
+.problem-block:nth-child(even) {
+    background: var(--color-primary-light);
 }
 
 .problem-block-title {
@@ -488,10 +452,18 @@ html {
     margin-bottom: 0.75rem;
 }
 
+.problem-block:nth-child(odd) .problem-block-title {
+    color: var(--color-primary-light);
+}
+
 .problem-block-text {
     font-size: 0.95rem;
-    color: rgba(255, 255, 255, 0.55);
+    color: rgba(255, 255, 255, 0.65);
     line-height: 1.75;
+}
+
+.problem-block:nth-child(odd) .problem-block-text {
+    color: var(--color-text-light);
 }
 
 /* Phrase de transition en bas de section */
@@ -737,52 +709,132 @@ html {
     margin-bottom: 1.5rem;
 }
 
-.coaching-subtitle {
-    font-size: 1.15rem;
+.coaching-icf {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1rem;
     color: var(--color-text-light);
     line-height: 1.75;
+    border-left: 3px solid var(--color-accent);
+    padding-left: 1.25rem;
+    margin-bottom: 0.75rem;
 }
 
-/* Blocs coaching (image + texte) */
-.coaching-block {
-    display: flex;
-    align-items: center;
-    gap: 4rem;
-    margin-bottom: 5rem;
+.coaching-icf-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
-.coaching-block.reverse {
-    flex-direction: row-reverse;
+.coaching-icf-link:hover {
+    color: var(--color-accent-hover);
 }
 
-.coaching-block-img {
-    flex: 1;
-    min-width: 0;
+/* 2 cartes coaching côte à côte */
+.coaching-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
 }
 
-.coaching-block-img img {
+.coaching-card {
+    background: var(--color-white);
+    border-radius: 20px;
+    border: 1px solid var(--color-border);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.coaching-card:hover {
+    box-shadow: 0 12px 40px rgba(21, 32, 52, 0.1);
+    transform: translateY(-3px);
+}
+
+.coaching-card-photo {
     width: 100%;
-    height: 360px;
+    height: 220px;
+    overflow: hidden;
+}
+
+.coaching-card-photo img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 16px;
+    display: block;
+    transition: transform 0.4s ease;
 }
 
-.coaching-block-content {
-    flex: 1;
+.coaching-card:hover .coaching-card-photo img {
+    transform: scale(1.04);
 }
 
-.coaching-block-title {
+.coaching-card-body {
+    padding: 2.5rem;
+}
+
+.coaching-card-num {
     font-family: var(--font-heading);
-    font-size: 2rem;
-    color: var(--color-dark);
+    font-size: 2.5rem;
+    color: var(--color-accent);
+    display: block;
+    line-height: 1;
     margin-bottom: 1.25rem;
 }
 
-.coaching-block-text {
+.coaching-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+.coaching-card-desc {
     font-size: 1.05rem;
     color: var(--color-text-light);
-    line-height: 1.8;
-    margin-bottom: 0.75rem;
+    line-height: 1.75;
+    margin-bottom: 1.75rem;
+}
+
+.coaching-card-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 2rem;
+}
+
+.coaching-card-list li {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.coaching-card-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+}
+
+.coaching-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.coaching-tag {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    background: rgba(26, 186, 234, 0.08);
+    border: 1px solid rgba(26, 186, 234, 0.25);
+    border-radius: 100px;
+    padding: 0.3rem 0.75rem;
 }
 
 
@@ -917,6 +969,10 @@ html {
     flex-direction: column;
     gap: 4rem;
     margin-bottom: 4rem;
+    background-image: url('images/fondW.svg');
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: auto 90%;
 }
 
 .about-card {
@@ -956,6 +1012,10 @@ html {
 
 .about-wado {
     background: var(--color-primary);
+    background-image: url('images/fondGoutte.svg');
+    background-repeat: no-repeat;
+    background-position: right 2rem center;
+    background-size: auto 65%;
     border-radius: 20px;
     padding: 3rem 3.5rem;
 }
@@ -978,6 +1038,362 @@ html {
 }
 
 
+/* ============================================
+   SECTION TÉMOIGNAGES
+   ============================================ */
+.section-temoignages {
+    background: var(--color-primary);
+    padding: 6rem 2rem;
+}
+
+.temoignages-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.temoignages-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.temoignages-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-white);
+}
+
+.temoignages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.temoignage-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: background 0.3s ease;
+}
+
+.temoignage-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Cartes claires (impaires) */
+.temoignage-card:nth-child(odd) {
+    background: var(--color-white);
+    border: 1px solid var(--color-border);
+}
+
+.temoignage-card:nth-child(odd):hover {
+    background: var(--color-bg);
+}
+
+.temoignage-card::before {
+    content: '\201C';
+    font-family: var(--font-heading);
+    font-size: 3.5rem;
+    color: var(--color-accent);
+    line-height: 0.8;
+    display: block;
+}
+
+.temoignage-text {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.8;
+    flex: 1;
+}
+
+.temoignage-card:nth-child(odd) .temoignage-text {
+    color: var(--color-text);
+}
+
+.temoignage-footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.temoignage-card:nth-child(odd) .temoignage-footer {
+    border-top: 1px solid var(--color-border);
+}
+
+.temoignage-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.temoignage-author {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    color: var(--color-accent);
+}
+
+
+/* ============================================
+   SECTION RESSOURCES
+   ============================================ */
+.section-ressources {
+    background: var(--color-bg);
+    padding: 6rem 2rem;
+}
+
+.ressources-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.ressources-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 3rem;
+}
+
+.ressources-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-primary);
+}
+
+.ressources-voir-tout {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.ressources-voir-tout:hover {
+    color: var(--color-accent-hover);
+}
+
+.ressources-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.ressource-card {
+    background: var(--color-white);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    text-decoration: none;
+    display: block;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.ressource-card:hover {
+    box-shadow: 0 8px 32px rgba(21, 32, 52, 0.1);
+    transform: translateY(-3px);
+}
+
+.ressource-card-cover {
+    width: 100%;
+    height: 200px;
+    background: var(--color-primary);
+    overflow: hidden;
+}
+
+.ressource-card-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.ressource-card:hover .ressource-card-cover img {
+    transform: scale(1.04);
+}
+
+.ressource-card-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.ressource-card-date {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.ressource-card-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    line-height: 1.4;
+}
+
+
+/* ============================================
+   PAGES LÉGALES
+   ============================================ */
+.legal-main {
+    min-height: calc(100vh - var(--header-height));
+    background: var(--color-bg);
+    padding: 5rem 2rem 6rem;
+}
+
+.legal-inner {
+    max-width: 740px;
+    margin: 0 auto;
+}
+
+.legal-back {
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-accent);
+    text-decoration: none;
+    margin-bottom: 2.5rem;
+    transition: color 0.2s ease;
+}
+
+.legal-back:hover {
+    color: var(--color-accent-hover);
+}
+
+.legal-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+}
+
+.legal-intro {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    margin-bottom: 3rem;
+}
+
+.legal-section {
+    margin-bottom: 2.5rem;
+}
+
+.legal-section h2 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+}
+
+.legal-section p,
+.legal-section li {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.8;
+}
+
+.legal-section ul {
+    padding-left: 1.5rem;
+    margin: 0.5rem 0 1rem;
+}
+
+.legal-section a {
+    color: var(--color-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.legal-section p + p {
+    margin-top: 0.75rem;
+}
+
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    background: var(--color-primary);
+    padding: 4rem 2rem 4rem;
+}
+
+.footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 3rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-tagline {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 1rem;
+    max-width: 220px;
+    line-height: 1.6;
+}
+
+.footer-nav {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+    color: var(--color-white);
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-copy {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-legal-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.footer-legal-link {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.3);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-legal-link:hover {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+
 /* -----------------------------------------------
    RESPONSIVE MOBILE
    -----------------------------------------------
@@ -988,57 +1404,45 @@ html {
 
 @media (max-width: 768px) {
 
-    /* Sur mobile, on AFFICHE le burger et la croix dans le panneau */
+    /* --- Burger & nav mobile --- */
     .burger {
         display: flex;
     }
 
-    .nav-close-item {
-        display: flex;
-        justify-content: flex-end;
-        width: 100%;
-        padding: 0 1rem;
-    }
-
-    /* Le menu devient un panneau latéral (sidebar)
-       qui couvre le côté droit de l'écran */
     .nav-menu {
-        position: fixed;       /* collé à l'écran */
-        top: 0;
-        right: 0;             /* collé à DROITE */
-        width: 75%;           /* prend 75% de la largeur */
-        max-width: 320px;     /* mais jamais plus de 320px */
-        height: 100vh;        /* toute la hauteur de l'écran */
-        z-index: 999;         /* sous le header (z-index: 1000) → burger reste cliquable */
-
-        background: var(--color-white);
-        flex-direction: column;    /* liens empilés verticalement */
-        justify-content: center;   /* centrés verticalement */
-        align-items: center;
-        gap: 2rem;
-        box-shadow: -4px 0 30px rgba(0, 0, 0, 0.15);
-
-        /* Par défaut : HORS de l'écran (poussé à droite) */
-        transform: translateX(100%);
-        /* cubic-bezier = une courbe d'animation personnalisée
-           Celle-ci donne un effet de "rebond" naturel */
-        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: var(--color-primary);
+        padding: 1rem 2rem 2rem;
+        gap: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Quand le JS ajoute la classe "open" :
-       le menu REVIENT à sa position normale → il slide depuis la droite */
     .nav-menu.open {
-        transform: translateX(0);
+        display: flex;
     }
 
-    /* Sur mobile, les liens sont foncés (fond blanc) */
+    .nav-menu li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .nav-menu li:last-child {
+        border-bottom: none;
+        padding-top: 1rem;
+    }
+
     .nav-link {
-        color: var(--color-text);
-        font-size: 1.1rem;
+        display: block;
+        padding: 0.85rem 0;
     }
 
-    .nav-link:hover {
-        color: var(--color-primary);
+    .nav-cta {
+        display: block;
+        text-align: center;
     }
 
     /* --- HERO mobile --- */
@@ -1077,13 +1481,14 @@ html {
 
     /* Coaching mobile */
     .coaching-heading { font-size: 2rem; }
-    .coaching-block, .coaching-block.reverse { flex-direction: column; gap: 2rem; }
-    .coaching-block-img img { height: 240px; }
-    .coaching-block-title { font-size: 1.5rem; }
+    .coaching-cards { grid-template-columns: 1fr; }
 
     /* Formation mobile */
     .formation-heading { font-size: 2rem; }
     .pieds-grid { grid-template-columns: 1fr; }
+
+    /* Témoignages mobile */
+    .temoignages-grid { grid-template-columns: 1fr; }
 
     /* Qui suis-je mobile */
     .about-heading { font-size: 2rem; }
@@ -1092,5 +1497,13 @@ html {
     .about-card.reverse { flex-direction: column; gap: 1.5rem; }
     .about-card-img { flex: none; width: 100%; height: 280px; }
     .about-wado { padding: 2rem 1.5rem; }
+
+    /* Ressources mobile */
+    .ressources-grid { grid-template-columns: 1fr; }
+
+    /* Footer mobile */
+    .footer-top { flex-direction: column; gap: 2rem; }
+    .footer-nav { justify-content: flex-start; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
 
 }

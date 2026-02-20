@@ -37,28 +37,19 @@
             <!-- <a href="#services"> = lien vers la section id="services" -->
             <nav>
                 <ul class="nav-menu" id="navMenu">
-                    <li class="nav-close-item">
-                        <button class="nav-close" id="navClose" aria-label="Fermer le menu">&#10005;</button>
-                    </li>
                     <li><a href="#qui-suis-je" class="nav-link">Qui suis-je</a></li>
-                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#coaching" class="nav-link">Coaching</a></li>
+                    <li><a href="#formation" class="nav-link">Formation</a></li>
                     <li><a href="#temoignages" class="nav-link">Témoignages</a></li>
-                    <li><a href="#articles" class="nav-link">Articles</a></li>
+                    <li><a href="#ressources" class="nav-link">Ressources</a></li>
                     <li><a href="#contact" class="nav-cta">Clarifions vos enjeux</a></li>
                 </ul>
             </nav>
 
-            <!-- BOUTON BURGER (visible uniquement sur mobile)
-                 C'est un <button> avec 3 <span> = 3 traits horizontaux.
-                 Quand on clique, le JS ajoutera la classe "active"
-                 et le CSS transformera les 3 traits en croix (×).
-
-                 aria-label = accessibilité : les lecteurs d'écran
-                 pour malvoyants liront "Menu" au lieu de rien. -->
-            <button class="burger" id="burger" aria-label="Menu">
-                <span class="burger-line"></span>
-                <span class="burger-line"></span>
-                <span class="burger-line"></span>
+            <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
 
         </div>
@@ -90,7 +81,7 @@
             <!-- <br> dans le sous-titre = retour à la ligne -->
             <div class="hero-buttons">
                 <a href="#contact" class="btn-primary">Clarifions vos enjeux</a>
-                <a href="#services" class="btn-secondary">Explorer les accompagnements</a>
+                <a href="#coaching" class="btn-secondary">Explorer les accompagnements</a>
             </div>
 
         </div>
@@ -100,27 +91,24 @@
         <div class="problem-inner">
 
             <div class="problem-header">
-                <h2 class="problem-heading">Les défis que vous connaissez</h2>
+                <h2 class="problem-heading">Des situations que vous rencontrez peut-être</h2>
             </div>
 
             <div class="problem-grid">
 
                 <div class="problem-block">
-                    <span class="problem-number">01</span>
-                    <h3 class="problem-block-title">Un cap managérial à franchir</h3>
-                    <p class="problem-block-text">Votre manager est prêt à évoluer. Un espace de recul lui serait bénéfique pour affirmer sa posture, gagner en sérénité et embarquer son équipe avec justesse.</p>
+                    <h3 class="problem-block-title">Vous avancez, mais quelque chose coince</h3>
+                    <p class="problem-block-text">Prise de poste, situation complexe, relation difficile... Vous sentez qu'un espace de recul vous aiderait à clarifier votre posture et à avancer avec plus de sérénité.</p>
                 </div>
 
                 <div class="problem-block">
-                    <span class="problem-number">02</span>
-                    <h3 class="problem-block-title">Un collectif en quête de synergie</h3>
-                    <p class="problem-block-text">Les talents sont là, l'envie aussi. Un cadre est à créer pour favoriser la collaboration et l'efficacité d'un collectif où chacun trouve sa place et avance ensemble.</p>
+                    <h3 class="problem-block-title">Le collectif est prêt, la dynamique est à construire</h3>
+                    <p class="problem-block-text">Les talents sont présents, l'envie aussi. Mais la collaboration ne va pas de soi. Il manque un cadre commun pour que le collectif trouve sa dynamique.</p>
                 </div>
 
                 <div class="problem-block">
-                    <span class="problem-number">03</span>
-                    <h3 class="problem-block-title">Une transformation en quête d'alignement</h3>
-                    <p class="problem-block-text">Le cap est clair, l'ambition est là. Un accompagnement est à poser pour donner du sens, créer de l'adhésion et permettre aux équipes de s'approprier le changement.</p>
+                    <h3 class="problem-block-title">Vous voulez ancrer de nouveaux savoir-être</h3>
+                    <p class="problem-block-text">Écouter vraiment, formuler un feedback juste, s'affirmer sans écraser, faire grandir l'autonomie — ces compétences s'apprennent en pratiquant, pas en lisant des slides.</p>
                 </div>
 
             </div>
@@ -133,36 +121,69 @@
  <!-- ============================================
          SECTION SERVICES — COACHING (fond gris clair)
          ============================================ -->
-         <section class="section-coaching" id="services">
+         <section class="section-coaching" id="coaching">
             <div class="coaching-inner">
     
                 <div class="coaching-header">
                     <span class="section-label">Coaching</span>
                     <h2 class="coaching-heading">Faire émérger les solutions</h2>
-                    <p class="coaching-subtitle">Le coaching crée l'espace pour révéler les options possibles les structurer et les mettre en action.</p>
+                    <p class="coaching-icf">« ICF définie le coaching comme une alliance entre le coach et ses clients dans un processus qui suscite chez eux réflexion et créativité afin de maximiser leur potentiel personnel et professionnel. »</p>
+                    <a href="https://www.coachfederation.fr/icf-france/quest-ce-que-le-coaching/" class="coaching-icf-link" target="_blank" rel="noopener">en savoir plus</a>
                 </div>
     
-                <!-- COACHING DE MANAGER -->
-                <div class="coaching-block">
-                    <div class="coaching-block-img">
-                        <img src="images/coaching-manager.jpg" alt="Coaching de manager">
+                <!-- 2 CARTES COACHING -->
+                <div class="coaching-cards">
+
+                    <div class="coaching-card">
+                        <div class="coaching-card-photo">
+                            <img src="images/coaching-manager.jpg" alt="Coaching individuel">
+                        </div>
+                        <div class="coaching-card-body">
+                            <span class="coaching-card-num">01</span>
+                            <h3 class="coaching-card-title">Coaching individuel</h3>
+                            <p class="coaching-card-desc">Affirmer sa posture, clarifier son style de leadership et avancer avec plus de sérénité dans des situations complexes.</p>
+                            <ul class="coaching-card-list">
+                                <li>Cadre individuel et confidentiel</li>
+                                <li>Objectifs et indicateurs définis ensemble</li>
+                                <li>Parcours unique, ancré dans votre réalité</li>
+                            </ul>
+                            <div class="coaching-card-tags">
+                                <span class="coaching-tag">Prise de poste</span>
+                                <span class="coaching-tag">Leadership</span>
+                                <span class="coaching-tag">Gestion de conflit</span>
+                                <span class="coaching-tag">Confiance en soi</span>
+                                <span class="coaching-tag">Gestion du stress</span>
+                                <span class="coaching-tag">Transition professionnelle</span>
+                                <span class="coaching-tag">Assertivité</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="coaching-block-content">
-                        <h3 class="coaching-block-title">Coaching de manager</h3>
-                        <p class="coaching-block-text">Un accompagnement individuel dans un cadre confidentiel pour prendre du recul, affirmer sa posture et développer un leadership aligné avec sa personnalité.</p>
-                        <p class="coaching-block-text">Objectifs et indicateurs de réussite définis ensemble dès le départ. Chaque parcours est unique, construit autour de la réalité du manager et de son contexte.</p>
+
+                    <div class="coaching-card">
+                        <div class="coaching-card-photo">
+                            <img src="images/coaching-equipe.jpg" alt="Coaching d'équipe">
+                        </div>
+                        <div class="coaching-card-body">
+                            <span class="coaching-card-num">02</span>
+                            <h3 class="coaching-card-title">Coaching d'équipe</h3>
+                            <p class="coaching-card-desc">Transformer un groupe de talents en collectif qui avance avec clarté, cohésion et un fonctionnement vraiment partagé.</p>
+                            <ul class="coaching-card-list">
+                                <li>Ateliers conçus sur-mesure</li>
+                                <li>L'équipe observée comme un système</li>
+                                <li>Co-construction d'un fonctionnement commun</li>
+                            </ul>
+                            <div class="coaching-card-tags">
+                                <span class="coaching-tag">Cohésion d'équipe</span>
+                                <span class="coaching-tag">Gestion des tensions</span>
+                                <span class="coaching-tag">Intelligence collective</span>
+                                <span class="coaching-tag">Conduite du changement</span>
+                                <span class="coaching-tag">Vision partagée</span>
+                                <span class="coaching-tag">Communication interne</span>
+                                <span class="coaching-tag">Co-leadership</span>
+                            </div>
+                        </div>
                     </div>
-                </div>
-    
-                <!-- COACHING D'ÉQUIPE -->
-                <div class="coaching-block reverse">
-                    <div class="coaching-block-img">
-                        <img src="images/coaching-equipe.jpg" alt="Coaching d'équipe">
-                    </div>
-                    <div class="coaching-block-content">
-                        <h3 class="coaching-block-title">Coaching d'équipe</h3>
-                        <p class="coaching-block-text">Des ateliers conçus sur-mesure pour permettre à une équipe de travailler sur son propre fonctionnement. L'équipe est observée en tant que système, pas comme une somme d'individus.</p>
-                    </div>
+
                 </div>
     
             </div>
@@ -171,7 +192,7 @@
         <!-- ============================================
              SECTION SERVICES — FORMATION (fond blanc)
              ============================================ -->
-        <section class="section-formation">
+        <section class="section-formation" id="formation">
             <div class="formation-inner">
     
                 <div class="formation-header">
@@ -261,9 +282,150 @@
 
         </div>
     </section>
-    <section class="placeholder alt" id="temoignages">Témoignages</section>
-    <section class="placeholder" id="articles">Articles</section>
+    <!-- ============================================
+         SECTION TÉMOIGNAGES
+         ============================================ -->
+    <section class="section-temoignages" id="temoignages">
+        <div class="temoignages-inner">
 
+            <div class="temoignages-header">
+                <h2 class="temoignages-heading">Histoire de succès</h2>
+            </div>
+
+            <div class="temoignages-grid">
+
+                <div class="temoignage-card">
+                    <p class="temoignage-text">Une personne humaine et à l'écoute ! Il a su me donner les clefs pour me redonner confiance et motivation dans ma recherche d'emploi, avec des résultats qui se sont montrés très efficaces ! Encore merci pour ton écoute</p>
+                    <div class="temoignage-footer">
+                        <img src="images/femme.png" alt="" class="temoignage-avatar">
+                        <span class="temoignage-author">Lotus</span>
+                    </div>
+                </div>
+
+                <div class="temoignage-card">
+                    <p class="temoignage-text">Je recommande vivement Mehdi pour un coaching professionnel. Sa recette : Professionalisme, structure, bienveillance, patiente, utilisation et maîtrise d'outils pertinents, flexibilité... En l'espace de peu de temps j'ai pu voir ma situation professionnelle évoluer de manière concrète et au plus proche de mes valeurs. Un grand merci!</p>
+                    <div class="temoignage-footer">
+                        <img src="images/femme.png" alt="" class="temoignage-avatar">
+                        <span class="temoignage-author">Romane</span>
+                    </div>
+                </div>
+
+                <div class="temoignage-card">
+                    <p class="temoignage-text">Mehdi est un coach professionnel remarquable qui m'accompagne avec attention et une grande empathie. Doté d'une écoute active et d'une remarquable capacité à recentrer les besoins, il me soutient dans l'attente de mes objectifs avec positivité et bienveillance. Je le recommande vivement</p>
+                    <div class="temoignage-footer">
+                        <img src="images/femme.png" alt="" class="temoignage-avatar">
+                        <span class="temoignage-author">Floriane</span>
+                    </div>
+                </div>
+
+                <div class="temoignage-card">
+                    <p class="temoignage-text">Mehdi est un excellent coach professionnel qui accompagne ses clients avec beaucoup de soins et d'empathie. Il possède un grand sens de l'écoute et pose des questions pertinentes. Il m'a aidé à atteindre mes objectifs même si ceux-ci étaient ambitieux. C'est un coach que je recommande les yeux fermés.</p>
+                    <div class="temoignage-footer">
+                        <img src="images/femme.png" alt="" class="temoignage-avatar">
+                        <span class="temoignage-author">Emilie</span>
+                    </div>
+                </div>
+
+                <div class="temoignage-card">
+                    <p class="temoignage-text">Pour mon lancement d'activité, j'avais besoin d'être challengée sur mes croyances, ma vision et ma mission. Mehdi a su être juste, précis et efficace dans son accompagnement avec moi. Je recommande</p>
+                    <div class="temoignage-footer">
+                        <img src="images/femme.png" alt="" class="temoignage-avatar">
+                        <span class="temoignage-author">Claire</span>
+                    </div>
+                </div>
+
+                <div class="temoignage-card">
+                    <p class="temoignage-text">Grâce au travail fait ensemble et à son questionnement, j'ai considérablement amélioré mon organisation et mon efficacité. Son approche personnalisée et son professionnalisme en font un coach exceptionnel. J'ai adoré nos échanges et le suivi tout au long de nos travaux.</p>
+                    <div class="temoignage-footer">
+                        <img src="images/homme.png" alt="" class="temoignage-avatar">
+                        <span class="temoignage-author">Arthur</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- ============================================
+         SECTION RESSOURCES
+         ============================================ -->
+    <section class="section-ressources" id="ressources">
+        <div class="ressources-inner">
+
+            <div class="ressources-header">
+                <h2 class="ressources-heading">Ressources</h2>
+                <a href="#" class="ressources-voir-tout">Voir tout →</a>
+            </div>
+
+            <div class="ressources-grid">
+
+                <a href="#" class="ressource-card">
+                    <div class="ressource-card-cover">
+                        <img src="images/ressources/assertivite-management.jpg" alt="L'assertivité au service du management d'entreprise">
+                    </div>
+                    <div class="ressource-card-body">
+                        <span class="ressource-card-date">7 octobre 2024</span>
+                        <h3 class="ressource-card-title">L'assertivité au service du management d'entreprise</h3>
+                    </div>
+                </a>
+
+                <a href="#" class="ressource-card">
+                    <div class="ressource-card-cover">
+                        <img src="images/ressources/moyens-ambitions.jpg" alt="Quand vos moyens rejoignent vos ambitions">
+                    </div>
+                    <div class="ressource-card-body">
+                        <span class="ressource-card-date">10 mars 2024</span>
+                        <h3 class="ressource-card-title">Quand vos moyens rejoignent vos ambitions</h3>
+                    </div>
+                </a>
+
+                <a href="#" class="ressource-card">
+                    <div class="ressource-card-cover">
+                        <img src="images/ressources/sorganiser-pourquoi.jpg" alt="S'organiser, pourquoi faire ?">
+                    </div>
+                    <div class="ressource-card-body">
+                        <span class="ressource-card-date">27 janvier 2025</span>
+                        <h3 class="ressource-card-title">S'organiser, pourquoi faire ?</h3>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ============================================
+         FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="footer-inner">
+
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <img src="images/logo.svg" alt="WadoCoaching" class="logo-img">
+                    </a>
+                    <p class="footer-tagline">De la sérénité dans la complexité</p>
+                </div>
+                <nav class="footer-nav">
+                    <a href="#coaching" class="footer-link">Coaching</a>
+                    <a href="#formation" class="footer-link">Formation</a>
+                    <a href="#temoignages" class="footer-link">Témoignages</a>
+                    <a href="#ressources" class="footer-link">Ressources</a>
+                </nav>
+            </div>
+
+            <div class="footer-bottom">
+                <span class="footer-copy">© 2025 WadoCoaching — Tous droits réservés</span>
+                <div class="footer-legal-links">
+                    <a href="mentions-legales.html" class="footer-legal-link">Mentions légales</a>
+                    <a href="politique-confidentialite.html" class="footer-legal-link">Politique de confidentialité</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
