@@ -3,7 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WadoCoaching</title>
+
+    <!-- SEO de base -->
+    <title>WadoCoaching | Coaching professionnel & formation managériale</title>
+    <meta name="description" content="Coach certifié ACC par l'ICF, Mehdi Soudsane accompagne managers et équipes. Coaching individuel, coaching d'équipe et formation managériale pour développer votre posture et votre leadership.">
+    <meta name="author" content="Mehdi Soudsane — WadoCoaching">
+    <link rel="canonical" href="https://www.wadocoaching.com/">
+
+    <!-- Open Graph (LinkedIn, Facebook, WhatsApp) -->
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="https://www.wadocoaching.com/">
+    <meta property="og:title"       content="WadoCoaching | Coaching professionnel & formation managériale">
+    <meta property="og:description" content="Coach certifié ACC par l'ICF, Mehdi Soudsane accompagne managers et équipes. Coaching individuel, coaching d'équipe et formation managériale.">
+    <meta property="og:image"       content="https://www.wadocoaching.com/images/hero-bg.jpg">
+    <meta property="og:locale"      content="fr_FR">
+    <meta property="og:site_name"   content="WadoCoaching">
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="WadoCoaching | Coaching professionnel & formation managériale">
+    <meta name="twitter:description" content="Coach certifié ACC par l'ICF, Mehdi Soudsane accompagne managers et équipes.">
+    <meta name="twitter:image"       content="https://www.wadocoaching.com/images/hero-bg.jpg">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://www.wadocoaching.com/#business",
+          "name": "WadoCoaching",
+          "url": "https://www.wadocoaching.com",
+          "email": "mehdi@wadocoaching.com",
+          "description": "Coaching individuel, coaching d'équipe et formation managériale.",
+          "founder": { "@id": "https://www.wadocoaching.com/#person" },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Accompagnements WadoCoaching",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Coaching individuel" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Coaching d'équipe" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Formation managériale" } }
+            ]
+          },
+          "areaServed": "France"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://www.wadocoaching.com/#person",
+          "name": "Mehdi Soudsane",
+          "jobTitle": "Coach professionnel certifié ACC (ICF)",
+          "email": "mehdi@wadocoaching.com",
+          "worksFor": { "@id": "https://www.wadocoaching.com/#business" },
+          "hasCredential": {
+            "@type": "EducationalOccupationalCredential",
+            "name": "ACC — International Coaching Federation (ICF)"
+          }
+        }
+      ]
+    }
+    </script>
 
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
