@@ -5,58 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WadoCoaching</title>
 
-    <!-- GOOGLE FONTS -->
-    <!-- On importe 2 polices depuis Google (gratuit) :
-         - DM Serif Display : élégante, pour les titres
-         - DM Sans : moderne et lisible, pour le texte courant
-         Le navigateur les télécharge automatiquement -->
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Notre fichier CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Calendly -->
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <div class="header-inner">
-
-            <!-- LOGO : maintenant c'est une image -->
-            <!-- <img> = balise pour afficher une image
-                 src = le chemin vers le fichier (relatif à index.html)
-                 alt = texte alternatif (accessibilité + SEO)
-                       → affiché si l'image ne charge pas
-                       → lu par les lecteurs d'écran pour malvoyants -->
-            <a href="#" class="logo">
-                <img src="images/logo.svg" alt="WadoCoaching" class="logo-img">
-            </a>
-
-            <!-- NAVIGATION -->
-            <!-- <nav> = balise sémantique qui dit "ceci est un menu" -->
-            <!-- <ul> = liste non ordonnée (unordered list) -->
-            <!-- <li> = un élément de la liste (list item) -->
-            <!-- <a href="#services"> = lien vers la section id="services" -->
-            <nav>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#qui-suis-je" class="nav-link">Qui suis-je</a></li>
-                    <li><a href="#coaching" class="nav-link">Coaching</a></li>
-                    <li><a href="#formation" class="nav-link">Formation</a></li>
-                    <li><a href="#temoignages" class="nav-link">Témoignages</a></li>
-                    <li><a href="#ressources" class="nav-link">Ressources</a></li>
-                    <li><a href="#" class="nav-cta" data-calendly-popup>Clarifions vos enjeux</a></li>
-                </ul>
-            </nav>
-
-            <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-
-        </div>
-    </header>
+    <div id="app-header"></div>
 
     <!-- SECTIONS PLACEHOLDER pour tester le scroll -->
     <!-- On les remplacera par le vrai contenu plus tard -->
@@ -139,7 +93,7 @@
 
                     <div class="coaching-card fade-in d1">
                         <div class="coaching-card-photo">
-                            <img src="images/coaching-manager.jpg" alt="Coaching individuel">
+                            <img src="/images/coaching-manager.jpg" alt="Coaching individuel">
                         </div>
                         <div class="coaching-card-body">
                             <span class="coaching-card-num">01</span>
@@ -164,7 +118,7 @@
 
                     <div class="coaching-card fade-in d2">
                         <div class="coaching-card-photo">
-                            <img src="images/coaching-equipe.jpg" alt="Coaching d'équipe">
+                            <img src="/images/coaching-equipe.jpg" alt="Coaching d'équipe">
                         </div>
                         <div class="coaching-card-body">
                             <span class="coaching-card-num">02</span>
@@ -258,7 +212,7 @@
                 <!-- LIGNE 1 : photo gauche, texte droite -->
                 <div class="about-card fade-in d1">
                     <div class="about-card-img">
-                        <img src="images/Photo1.jpg" alt="Photo mehdi">
+                        <img src="/images/Photo1.jpg" alt="Photo mehdi">
                     </div>
                     <div class="about-card-content">
                         <p class="about-card-text">Quinze ans dans le secteur bancaire, consultant en transformation digitale puis manager. J'ai piloté des projets complexes, travaillé dans des environnements agiles, accompagné des équipes dans des contextes d'incertitude permanente. C'est sur le terrain que j'ai compris ce que le management demande vraiment : une posture, une présence, une capacité à tenir face à ce qu'on ne maîtrise pas — et le droit de ne pas avoir toutes les réponses. Cette conviction, je l'ai vécue avant de la mettre en mots. Elle est devenue le fondement de ma pratique de coach — depuis 2023. Pour moi, bien accompagner c'est aussi accompagner de façon éthique et rigoureuse — c'est pourquoi j'adhère à l'ICF et suis certifié ACC, avec plus de 200 heures d'accompagnement.</p>
@@ -268,7 +222,7 @@
                 <!-- LIGNE 2 : texte gauche, photo droite -->
                 <div class="about-card reverse fade-in d2">
                     <div class="about-card-img">
-                        <img src="images/Photo2.JPG" alt="Photo mehdi">
+                        <img src="/images/Photo2.JPG" alt="Photo mehdi">
                     </div>
                     <div class="about-card-content">
                         <p class="about-card-text">Mon travail repose sur une conviction simple : les ressources sont déjà là. Ce que je cherche, ce n'est pas à apporter des réponses de l'extérieur — c'est à créer les conditions pour qu'elles émergent. Cela demande de l'écoute, de la confiance, et une relation suffisamment solide pour regarder ensemble ce qu'on ne voyait pas. Les angles morts, les habitudes qui freinent, les ressorts qu'on n'avait pas identifiés — on les explore pas à pas, sans précipitation. J'accompagne des managers en prise de poste, des équipes en tension, des professionnels qui veulent changer quelque chose dans leur façon d'exercer. Chaque parcours est unique — mon intention reste la même : vous accompagner à définir et atteindre votre prochain cap.</p>
@@ -300,7 +254,7 @@
                 <div class="temoignage-card fade-in d1">
                     <p class="temoignage-text">Une personne humaine et à l'écoute ! Il a su me donner les clefs pour me redonner confiance et motivation dans ma recherche d'emploi, avec des résultats qui se sont montrés très efficaces ! Encore merci pour ton écoute</p>
                     <div class="temoignage-footer">
-                        <img src="images/femme.png" alt="" class="temoignage-avatar">
+                        <img src="/images/femme.png" alt="" class="temoignage-avatar">
                         <span class="temoignage-author">Lotus</span>
                     </div>
                 </div>
@@ -308,7 +262,7 @@
                 <div class="temoignage-card fade-in d2">
                     <p class="temoignage-text">Je recommande vivement Mehdi pour un coaching professionnel. Sa recette : Professionalisme, structure, bienveillance, patiente, utilisation et maîtrise d'outils pertinents, flexibilité... En l'espace de peu de temps j'ai pu voir ma situation professionnelle évoluer de manière concrète et au plus proche de mes valeurs. Un grand merci!</p>
                     <div class="temoignage-footer">
-                        <img src="images/femme.png" alt="" class="temoignage-avatar">
+                        <img src="/images/femme.png" alt="" class="temoignage-avatar">
                         <span class="temoignage-author">Romane</span>
                     </div>
                 </div>
@@ -316,7 +270,7 @@
                 <div class="temoignage-card fade-in d3">
                     <p class="temoignage-text">Mehdi est un coach professionnel remarquable qui m'accompagne avec attention et une grande empathie. Doté d'une écoute active et d'une remarquable capacité à recentrer les besoins, il me soutient dans l'attente de mes objectifs avec positivité et bienveillance. Je le recommande vivement</p>
                     <div class="temoignage-footer">
-                        <img src="images/femme.png" alt="" class="temoignage-avatar">
+                        <img src="/images/femme.png" alt="" class="temoignage-avatar">
                         <span class="temoignage-author">Floriane</span>
                     </div>
                 </div>
@@ -324,7 +278,7 @@
                 <div class="temoignage-card fade-in d1">
                     <p class="temoignage-text">Mehdi est un excellent coach professionnel qui accompagne ses clients avec beaucoup de soins et d'empathie. Il possède un grand sens de l'écoute et pose des questions pertinentes. Il m'a aidé à atteindre mes objectifs même si ceux-ci étaient ambitieux. C'est un coach que je recommande les yeux fermés.</p>
                     <div class="temoignage-footer">
-                        <img src="images/femme.png" alt="" class="temoignage-avatar">
+                        <img src="/images/femme.png" alt="" class="temoignage-avatar">
                         <span class="temoignage-author">Emilie</span>
                     </div>
                 </div>
@@ -332,7 +286,7 @@
                 <div class="temoignage-card fade-in d2">
                     <p class="temoignage-text">Pour mon lancement d'activité, j'avais besoin d'être challengée sur mes croyances, ma vision et ma mission. Mehdi a su être juste, précis et efficace dans son accompagnement avec moi. Je recommande</p>
                     <div class="temoignage-footer">
-                        <img src="images/femme.png" alt="" class="temoignage-avatar">
+                        <img src="/images/femme.png" alt="" class="temoignage-avatar">
                         <span class="temoignage-author">Claire</span>
                     </div>
                 </div>
@@ -340,7 +294,7 @@
                 <div class="temoignage-card fade-in d3">
                     <p class="temoignage-text">Grâce au travail fait ensemble et à son questionnement, j'ai considérablement amélioré mon organisation et mon efficacité. Son approche personnalisée et son professionnalisme en font un coach exceptionnel. J'ai adoré nos échanges et le suivi tout au long de nos travaux.</p>
                     <div class="temoignage-footer">
-                        <img src="images/homme.png" alt="" class="temoignage-avatar">
+                        <img src="/images/homme.png" alt="" class="temoignage-avatar">
                         <span class="temoignage-author">Arthur</span>
                     </div>
                 </div>
@@ -364,7 +318,7 @@
 
                 <a href="#" class="ressource-card fade-in d1">
                     <div class="ressource-card-cover">
-                        <img src="images/ressources/assertivite-management.jpg" alt="L'assertivité au service du management d'entreprise">
+                        <img src="/images/ressources/assertivite-management.jpg" alt="L'assertivité au service du management d'entreprise">
                     </div>
                     <div class="ressource-card-body">
                         <span class="ressource-card-date">7 octobre 2024</span>
@@ -374,7 +328,7 @@
 
                 <a href="#" class="ressource-card fade-in d2">
                     <div class="ressource-card-cover">
-                        <img src="images/ressources/moyens-ambitions.jpg" alt="Quand vos moyens rejoignent vos ambitions">
+                        <img src="/images/ressources/moyens-ambitions.jpg" alt="Quand vos moyens rejoignent vos ambitions">
                     </div>
                     <div class="ressource-card-body">
                         <span class="ressource-card-date">10 mars 2024</span>
@@ -384,7 +338,7 @@
 
                 <a href="#" class="ressource-card fade-in d3">
                     <div class="ressource-card-cover">
-                        <img src="images/ressources/sorganiser-pourquoi.jpg" alt="S'organiser, pourquoi faire ?">
+                        <img src="/images/ressources/sorganiser-pourquoi.jpg" alt="S'organiser, pourquoi faire ?">
                     </div>
                     <div class="ressource-card-body">
                         <span class="ressource-card-date">27 janvier 2025</span>
@@ -401,37 +355,10 @@
     <!-- ============================================
          FOOTER
          ============================================ -->
-    <footer class="footer">
-        <div class="footer-inner">
+    <div id="app-footer"></div>
 
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <img src="images/logo.svg" alt="WadoCoaching" class="logo-img">
-                    </a>
-                    <p class="footer-tagline">De la sérénité dans la complexité</p>
-                </div>
-                <nav class="footer-nav">
-                    <a href="#coaching" class="footer-link">Coaching</a>
-                    <a href="#formation" class="footer-link">Formation</a>
-                    <a href="#temoignages" class="footer-link">Témoignages</a>
-                    <a href="#ressources" class="footer-link">Ressources</a>
-                </nav>
-            </div>
-
-            <div class="footer-bottom">
-                <span class="footer-copy">© 2025 WadoCoaching — Tous droits réservés</span>
-                <div class="footer-legal-links">
-                    <a href="mentions-legales.html" class="footer-legal-link">Mentions légales</a>
-                    <a href="politique-confidentialite.html" class="footer-legal-link">Politique de confidentialité</a>
-                </div>
-            </div>
-
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <script type="module" src="/src/main-home.js"></script>
     <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-    <script src="calendly.js"></script>
+    <script src="/calendly.js" defer></script>
 </body>
 </html>

@@ -19,16 +19,11 @@ function openCalendlyPopup(e) {
         window.open(CALENDLY_URL, '_blank');
     }
 
-    // Ferme le menu mobile si ouvert
-    var navMenu = document.getElementById('navMenu');
-    var burger  = document.getElementById('burger');
-    if (navMenu && navMenu.classList.contains('open')) {
-        navMenu.classList.remove('open');
-        burger.classList.remove('open');
-        burger.setAttribute('aria-expanded', 'false');
-    }
 }
 
-document.querySelectorAll('[data-calendly-popup]').forEach(function(btn) {
-    btn.addEventListener('click', openCalendlyPopup);
+// Event delegation — compatible avec le rendu asynchrone de Vue
+document.addEventListener('click', function(e) {
+    var btn = e.target.closest('[data-calendly-popup]');
+    if (!btn) return;
+    openCalendlyPopup(e);
 });

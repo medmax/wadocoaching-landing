@@ -5,32 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentions légales — WadoCoaching</title>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <div class="header-inner">
-            <a href="index.html" class="logo">
-                <img src="images/logo.svg" alt="WadoCoaching" class="logo-img">
-            </a>
-            <nav>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="index.html#qui-suis-je" class="nav-link">Qui suis-je</a></li>
-                    <li><a href="index.html#coaching" class="nav-link">Coaching</a></li>
-                    <li><a href="index.html#formation" class="nav-link">Formation</a></li>
-                    <li><a href="index.html#temoignages" class="nav-link">Témoignages</a></li>
-                    <li><a href="index.html#ressources" class="nav-link">Ressources</a></li>
-                    <li><a href="index.html#contact" class="nav-cta">Clarifions vos enjeux</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div id="app-header"></div>
 
     <main class="legal-main">
         <div class="legal-inner">
 
-            <a href="index.html" class="legal-back">← Retour à l'accueil</a>
+            <a href="/" class="legal-back">← Retour à l'accueil</a>
 
             <h1 class="legal-title">Mentions légales</h1>
             <p class="legal-intro">En vertu de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique, il est précisé aux utilisateurs du site internet https://www.wadocoaching.com l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi.</p>
@@ -90,7 +74,7 @@
             <section class="legal-section">
                 <h2>Gestion des données personnelles</h2>
                 <p>Le client est informé des réglementations concernant la communication marketing, la loi du 21 juin 2014 pour la confiance dans l'économie numérique, la loi Informatique et Liberté du 06 août 2004 ainsi que du Règlement Général sur la Protection des Données (RGPD : n° 2016-679).</p>
-                <p>Pour en savoir plus sur la collecte, l'utilisation et la protection de vos données personnelles, consultez notre <a href="politique-confidentialite.html">Politique de confidentialité</a>.</p>
+                <p>Pour en savoir plus sur la collecte, l'utilisation et la protection de vos données personnelles, consultez notre <a href="/politique-confidentialite.html">Politique de confidentialité</a>.</p>
                 <p>Pour exercer vos droits ou contacter le délégué à la protection des données, écrivez à : <a href="mailto:mehdi@wadocoaching.com">mehdi@wadocoaching.com</a>.</p>
                 <p>Les utilisateurs peuvent également déposer une réclamation auprès des autorités de contrôle, et notamment de la <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener">CNIL</a>.</p>
             </section>
@@ -110,32 +94,10 @@
         </div>
     </main>
 
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <img src="images/logo.svg" alt="WadoCoaching" class="logo-img">
-                    </a>
-                    <p class="footer-tagline">De la sérénité dans la complexité</p>
-                </div>
-                <nav class="footer-nav">
-                    <a href="index.html#coaching" class="footer-link">Coaching</a>
-                    <a href="index.html#formation" class="footer-link">Formation</a>
-                    <a href="index.html#temoignages" class="footer-link">Témoignages</a>
-                    <a href="index.html#ressources" class="footer-link">Ressources</a>
-                </nav>
-            </div>
-            <div class="footer-bottom">
-                <span class="footer-copy">© 2025 WadoCoaching — Tous droits réservés</span>
-                <div class="footer-legal-links">
-                    <a href="mentions-legales.html" class="footer-legal-link">Mentions légales</a>
-                    <a href="politique-confidentialite.html" class="footer-legal-link">Politique de confidentialité</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <div id="app-footer"></div>
 
-    <script src="script.js"></script>
+    <script type="module" src="/src/main-mentions.js"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script src="/calendly.js" defer></script>
 </body>
 </html>
