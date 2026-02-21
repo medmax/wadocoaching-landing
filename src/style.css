@@ -271,7 +271,7 @@ html {
        0.7 = image plus visible / 0.9 = presque que le bleu */
     background:
         linear-gradient(rgba(21, 32, 52, 0.85), rgba(21, 32, 52, 0.85)),
-        url('images/hero-bg.jpg');
+        url('/images/hero-bg.jpg');
 
     /* background-size: cover → l'image couvre TOUTE la section
        sans se déformer. Elle sera rognée si besoin. */
