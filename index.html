@@ -14,6 +14,9 @@
 
     <!-- Notre fichier CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Calendly -->
+    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 </head>
 <body>
 
@@ -42,7 +45,7 @@
                     <li><a href="#formation" class="nav-link">Formation</a></li>
                     <li><a href="#temoignages" class="nav-link">Témoignages</a></li>
                     <li><a href="#ressources" class="nav-link">Ressources</a></li>
-                    <li><a href="#contact" class="nav-cta">Clarifions vos enjeux</a></li>
+                    <li><a href="#" class="nav-cta" data-calendly-popup>Clarifions vos enjeux</a></li>
                 </ul>
             </nav>
 
@@ -80,7 +83,7 @@
             <!-- Les 2 boutons CTA -->
             <!-- <br> dans le sous-titre = retour à la ligne -->
             <div class="hero-buttons">
-                <a href="#contact" class="btn-primary">Clarifions vos enjeux</a>
+                <a href="#" class="btn-primary" data-calendly-popup>Clarifions vos enjeux</a>
                 <a href="#coaching" class="btn-secondary">Explorer les accompagnements</a>
             </div>
 
@@ -90,30 +93,30 @@
     <section class="section-problem" id="problemes">
         <div class="problem-inner">
 
-            <div class="problem-header">
+            <div class="problem-header fade-in">
                 <h2 class="problem-heading">Des situations que vous rencontrez peut-être</h2>
             </div>
 
             <div class="problem-grid">
 
-                <div class="problem-block">
+                <div class="problem-block fade-in d1">
                     <h3 class="problem-block-title">Vous avancez, mais quelque chose coince</h3>
                     <p class="problem-block-text">Prise de poste, situation complexe, relation difficile... Vous sentez qu'un espace de recul vous aiderait à clarifier votre posture et à avancer avec plus de sérénité.</p>
                 </div>
 
-                <div class="problem-block">
+                <div class="problem-block fade-in d2">
                     <h3 class="problem-block-title">Le collectif est prêt, la dynamique est à construire</h3>
                     <p class="problem-block-text">Les talents sont présents, l'envie aussi. Mais la collaboration ne va pas de soi. Il manque un cadre commun pour que le collectif trouve sa dynamique.</p>
                 </div>
 
-                <div class="problem-block">
+                <div class="problem-block fade-in d3">
                     <h3 class="problem-block-title">Vous voulez ancrer de nouveaux savoir-être</h3>
                     <p class="problem-block-text">Écouter vraiment, formuler un feedback juste, s'affirmer sans écraser, faire grandir l'autonomie — ces compétences s'apprennent en pratiquant, pas en lisant des slides.</p>
                 </div>
 
             </div>
 
-            <p class="problem-transition">Quand l'enjeu est humain, la réponse ne peut plus être que technique.</p>
+            <p class="problem-transition fade-in">Quand l'enjeu est humain, la réponse ne peut plus être que technique.</p>
 
         </div>
     </section>
@@ -124,7 +127,7 @@
          <section class="section-coaching" id="coaching">
             <div class="coaching-inner">
     
-                <div class="coaching-header">
+                <div class="coaching-header fade-in">
                     <span class="section-label">Coaching</span>
                     <h2 class="coaching-heading">Faire émérger les solutions</h2>
                     <p class="coaching-icf">« ICF définie le coaching comme une alliance entre le coach et ses clients dans un processus qui suscite chez eux réflexion et créativité afin de maximiser leur potentiel personnel et professionnel. »</p>
@@ -134,7 +137,7 @@
                 <!-- 2 CARTES COACHING -->
                 <div class="coaching-cards">
 
-                    <div class="coaching-card">
+                    <div class="coaching-card fade-in d1">
                         <div class="coaching-card-photo">
                             <img src="images/coaching-manager.jpg" alt="Coaching individuel">
                         </div>
@@ -159,7 +162,7 @@
                         </div>
                     </div>
 
-                    <div class="coaching-card">
+                    <div class="coaching-card fade-in d2">
                         <div class="coaching-card-photo">
                             <img src="images/coaching-equipe.jpg" alt="Coaching d'équipe">
                         </div>
@@ -195,7 +198,7 @@
         <section class="section-formation" id="formation">
             <div class="formation-inner">
     
-                <div class="formation-header">
+                <div class="formation-header fade-in">
                     <span class="section-label">Formation</span>
                     <h2 class="formation-heading">Un tabouret à 4 pieds pour ajuster sa posture managériale</h2>
                     <p class="formation-subtitle">Quatre savoir-être fondamentaux pour asseoir une posture managériale solide et authentique.</p>
@@ -204,28 +207,28 @@
     
                 <!-- LES 4 PIEDS DÉTAILLÉS -->
                 <div class="pieds-grid">
-                    <div class="pied-card">
+                    <div class="pied-card fade-in d1">
                         <div class="pied-card-header">
                             <h3 class="pied-card-title">Adopter l'écoute active</h3>
                             <span class="pied-card-badge">Une histoire de posture</span>
                         </div>
                         <p class="pied-card-text">Développer une qualité de présence et d'attention qui permet à l'autre de se sentir entendu. L'écoute active est le socle de toute relation managériale saine.</p>
                     </div>
-                    <div class="pied-card">
+                    <div class="pied-card fade-in d2">
                         <div class="pied-card-header">
                             <h3 class="pied-card-title">Cultiver le feedback</h3>
                             <span class="pied-card-badge">Une histoire d'intention</span>
                         </div>
                         <p class="pied-card-text">Apprendre à formuler des retours constructifs, ancrés dans les faits et portés par une intention bienveillante. Le feedback devient un levier de progression, pas une source de tension.</p>
                     </div>
-                    <div class="pied-card">
+                    <div class="pied-card fade-in d3">
                         <div class="pied-card-header">
                             <h3 class="pied-card-title">Oser l'assertivité</h3>
                             <span class="pied-card-badge">Une histoire de valeurs</span>
                         </div>
                         <p class="pied-card-text">S'affirmer avec respect. Dire les choses avec clarté sans agressivité, poser un cadre sans rigidité. L'assertivité est le courage managérial au quotidien.</p>
                     </div>
-                    <div class="pied-card">
+                    <div class="pied-card fade-in d4">
                         <div class="pied-card-header">
                             <h3 class="pied-card-title">Favoriser l'autonomie</h3>
                             <span class="pied-card-badge">Une histoire de confiance</span>
@@ -246,14 +249,14 @@
     <section class="section-about" id="qui-suis-je">
         <div class="about-inner">
 
-            <h2 class="about-heading">Qui suis-je ?</h2>
+            <h2 class="about-heading fade-in">Qui suis-je ?</h2>
 
             <!-- LIGNE 1 : photo gauche, texte droite -->
             <!-- LIGNE 2 : texte gauche, photo droite -->
             <div class="about-grid">
 
                 <!-- LIGNE 1 : photo gauche, texte droite -->
-                <div class="about-card">
+                <div class="about-card fade-in d1">
                     <div class="about-card-img">
                         <img src="images/Photo1.jpg" alt="Photo mehdi">
                     </div>
@@ -263,7 +266,7 @@
                 </div>
 
                 <!-- LIGNE 2 : texte gauche, photo droite -->
-                <div class="about-card reverse">
+                <div class="about-card reverse fade-in d2">
                     <div class="about-card-img">
                         <img src="images/Photo2.JPG" alt="Photo mehdi">
                     </div>
@@ -275,7 +278,7 @@
             </div>
 
             <!-- BLOC 3 : Pourquoi Wado ? -->
-            <div class="about-wado">
+            <div class="about-wado fade-in">
                 <h3 class="about-wado-title">Pourquoi Wado ?</h3>
                 <blockquote class="about-wado-quote">Wado vient du karaté — une discipline que j'ai pratiquée pendant plus de dix ans. Wado ryu : la voie de la paix. Non pas l'absence de difficulté, mais un esprit calme et clair capable de s'adapter à ce qui vient. C'est aussi l'image que je retiens de la méthode GTD, que je pratique au quotidien — l'esprit comme l'eau du lac, d'où la goutte dans le logo. Le W, enfin, c'est le M de mon prénom retourné : un rappel que l'accompagnement regarde les deux faces de ce qui vous permet d'avancer — vos forces et vos ressources, mais aussi vos freins et vos craintes.</blockquote>
             </div>
@@ -288,13 +291,13 @@
     <section class="section-temoignages" id="temoignages">
         <div class="temoignages-inner">
 
-            <div class="temoignages-header">
+            <div class="temoignages-header fade-in">
                 <h2 class="temoignages-heading">Histoire de succès</h2>
             </div>
 
             <div class="temoignages-grid">
 
-                <div class="temoignage-card">
+                <div class="temoignage-card fade-in d1">
                     <p class="temoignage-text">Une personne humaine et à l'écoute ! Il a su me donner les clefs pour me redonner confiance et motivation dans ma recherche d'emploi, avec des résultats qui se sont montrés très efficaces ! Encore merci pour ton écoute</p>
                     <div class="temoignage-footer">
                         <img src="images/femme.png" alt="" class="temoignage-avatar">
@@ -302,7 +305,7 @@
                     </div>
                 </div>
 
-                <div class="temoignage-card">
+                <div class="temoignage-card fade-in d2">
                     <p class="temoignage-text">Je recommande vivement Mehdi pour un coaching professionnel. Sa recette : Professionalisme, structure, bienveillance, patiente, utilisation et maîtrise d'outils pertinents, flexibilité... En l'espace de peu de temps j'ai pu voir ma situation professionnelle évoluer de manière concrète et au plus proche de mes valeurs. Un grand merci!</p>
                     <div class="temoignage-footer">
                         <img src="images/femme.png" alt="" class="temoignage-avatar">
@@ -310,7 +313,7 @@
                     </div>
                 </div>
 
-                <div class="temoignage-card">
+                <div class="temoignage-card fade-in d3">
                     <p class="temoignage-text">Mehdi est un coach professionnel remarquable qui m'accompagne avec attention et une grande empathie. Doté d'une écoute active et d'une remarquable capacité à recentrer les besoins, il me soutient dans l'attente de mes objectifs avec positivité et bienveillance. Je le recommande vivement</p>
                     <div class="temoignage-footer">
                         <img src="images/femme.png" alt="" class="temoignage-avatar">
@@ -318,7 +321,7 @@
                     </div>
                 </div>
 
-                <div class="temoignage-card">
+                <div class="temoignage-card fade-in d1">
                     <p class="temoignage-text">Mehdi est un excellent coach professionnel qui accompagne ses clients avec beaucoup de soins et d'empathie. Il possède un grand sens de l'écoute et pose des questions pertinentes. Il m'a aidé à atteindre mes objectifs même si ceux-ci étaient ambitieux. C'est un coach que je recommande les yeux fermés.</p>
                     <div class="temoignage-footer">
                         <img src="images/femme.png" alt="" class="temoignage-avatar">
@@ -326,7 +329,7 @@
                     </div>
                 </div>
 
-                <div class="temoignage-card">
+                <div class="temoignage-card fade-in d2">
                     <p class="temoignage-text">Pour mon lancement d'activité, j'avais besoin d'être challengée sur mes croyances, ma vision et ma mission. Mehdi a su être juste, précis et efficace dans son accompagnement avec moi. Je recommande</p>
                     <div class="temoignage-footer">
                         <img src="images/femme.png" alt="" class="temoignage-avatar">
@@ -334,7 +337,7 @@
                     </div>
                 </div>
 
-                <div class="temoignage-card">
+                <div class="temoignage-card fade-in d3">
                     <p class="temoignage-text">Grâce au travail fait ensemble et à son questionnement, j'ai considérablement amélioré mon organisation et mon efficacité. Son approche personnalisée et son professionnalisme en font un coach exceptionnel. J'ai adoré nos échanges et le suivi tout au long de nos travaux.</p>
                     <div class="temoignage-footer">
                         <img src="images/homme.png" alt="" class="temoignage-avatar">
@@ -352,14 +355,14 @@
     <section class="section-ressources" id="ressources">
         <div class="ressources-inner">
 
-            <div class="ressources-header">
+            <div class="ressources-header fade-in">
                 <h2 class="ressources-heading">Ressources</h2>
                 <a href="#" class="ressources-voir-tout">Voir tout →</a>
             </div>
 
             <div class="ressources-grid">
 
-                <a href="#" class="ressource-card">
+                <a href="#" class="ressource-card fade-in d1">
                     <div class="ressource-card-cover">
                         <img src="images/ressources/assertivite-management.jpg" alt="L'assertivité au service du management d'entreprise">
                     </div>
@@ -369,7 +372,7 @@
                     </div>
                 </a>
 
-                <a href="#" class="ressource-card">
+                <a href="#" class="ressource-card fade-in d2">
                     <div class="ressource-card-cover">
                         <img src="images/ressources/moyens-ambitions.jpg" alt="Quand vos moyens rejoignent vos ambitions">
                     </div>
@@ -379,7 +382,7 @@
                     </div>
                 </a>
 
-                <a href="#" class="ressource-card">
+                <a href="#" class="ressource-card fade-in d3">
                     <div class="ressource-card-cover">
                         <img src="images/ressources/sorganiser-pourquoi.jpg" alt="S'organiser, pourquoi faire ?">
                     </div>
@@ -428,5 +431,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+    <script src="calendly.js"></script>
 </body>
 </html>
