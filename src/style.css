@@ -125,3 +125,78 @@
   line-height: 0.8;
   display: block;
 }
+
+/* -----------------------------------------------
+   RICH TEXT ARTICLE (Portable Text output)
+----------------------------------------------- */
+.prose-wado h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: var(--color-primary);
+  line-height: 1.25;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+.prose-wado h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  line-height: 1.3;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-wado p {
+  font-size: 1rem;
+  color: var(--color-primary);
+  line-height: 1.85;
+  margin-bottom: 1.25rem;
+}
+.prose-wado strong { font-weight: 600; }
+.prose-wado em {
+  font-style: italic;
+  color: var(--color-text-light);
+}
+.prose-wado a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+.prose-wado a:hover { color: var(--color-primary-light); }
+.prose-wado blockquote {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--color-primary);
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1.25rem;
+  margin: 2rem 0;
+  line-height: 1.9;
+}
+.prose-wado ul,
+.prose-wado ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.prose-wado ul li { list-style-type: disc; }
+.prose-wado ol li { list-style-type: decimal; }
+.prose-wado li {
+  font-size: 0.95rem;
+  color: var(--color-primary);
+  line-height: 1.75;
+}
+.prose-wado figure { margin: 2rem 0; }
+.prose-wado figure img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+.prose-wado figcaption {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+  margin-top: 0.5rem;
+}
