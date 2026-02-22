@@ -1,42 +1,42 @@
 <script setup lang="ts">
 import { h } from 'vue'
 import { PortableText } from '@portabletext/vue'
-import type { PortableTextComponents } from '@portabletext/vue'
 import { urlFor } from '../sanity'
 
 defineProps<{ value: unknown[] }>()
 
-const components: PortableTextComponents = {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const components = {
   types: {
-    image: ({ value }: { value: { asset: unknown; alt?: string; caption?: string } }) => {
+    image: ({ value }: any) => {
       const src = urlFor(value.asset).width(740).auto('format').quality(85).url()
-      return h('figure', { class: '' }, [
-        h('img', { src, alt: value.alt ?? '', loading: 'lazy', class: '' }),
+      return h('figure', {}, [
+        h('img', { src, alt: value.alt ?? '', loading: 'lazy' }),
         value.caption ? h('figcaption', {}, value.caption) : null,
       ])
     },
   },
   marks: {
-    link: ({ value, children }: { value: { href: string; blank?: boolean }; children: unknown }) =>
+    link: ({ value }: any, { slots }: any) =>
       h(
         'a',
         {
-          href: value.href,
-          target: value.blank ? '_blank' : undefined,
-          rel: value.blank ? 'noopener noreferrer' : undefined,
+          href: value?.href,
+          target: value?.blank ? '_blank' : undefined,
+          rel: value?.blank ? 'noopener noreferrer' : undefined,
         },
-        children as string,
+        slots.default?.(),
       ),
   },
   block: {
-    h2: ({ children }: { children: unknown }) => h('h2', {}, children as string),
-    h3: ({ children }: { children: unknown }) => h('h3', {}, children as string),
-    blockquote: ({ children }: { children: unknown }) => h('blockquote', {}, children as string),
-    normal: ({ children }: { children: unknown }) => h('p', {}, children as string),
+    h2:         (_: any, { slots }: any) => h('h2',         {}, slots.default?.()),
+    h3:         (_: any, { slots }: any) => h('h3',         {}, slots.default?.()),
+    blockquote: (_: any, { slots }: any) => h('blockquote', {}, slots.default?.()),
+    normal:     (_: any, { slots }: any) => h('p',          {}, slots.default?.()),
   },
 }
 </script>
 
 <template>
-  <PortableText :value="value" :components="components" />
+  <PortableText :value="(value as any)" :components="components" />
 </template>

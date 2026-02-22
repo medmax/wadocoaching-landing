@@ -40,7 +40,7 @@ const formattedDate = computed(() => {
 
 const coverUrl = computed(() => {
   if (!article.value?.coverImage) return null
-  return urlFor(article.value.coverImage).width(1200).height(500).auto('format').quality(85).url()
+  return urlFor(article.value.coverImage).width(560).height(600).auto('format').quality(85).url()
 })
 
 // SEO dynamique
@@ -67,52 +67,88 @@ watch(article, (a) => {
 </script>
 
 <template>
+
   <!-- Article chargé -->
   <article v-if="article">
 
-    <!-- Breadcrumb -->
-    <nav class="mb-8 text-[0.875rem] text-text-light flex items-center gap-2">
-      <a href="/ressources/" class="text-accent no-underline hover:text-primary-light transition-colors">
-        Ressources
-      </a>
-      <span>/</span>
-      <span class="text-primary truncate">{{ article.title }}</span>
-    </nav>
+    <!-- ── HERO ─────────────────────────────────────── -->
+    <div class="bg-primary rounded-2xl overflow-hidden mb-14 px-8 md:px-14 py-12 flex flex-col md:flex-row items-center gap-10">
 
-    <!-- Image de couverture -->
-    <div class="w-full h-[300px] md:h-[460px] rounded-2xl overflow-hidden bg-primary mb-10">
-      <img
-        v-if="coverUrl"
-        :src="coverUrl"
-        :alt="article.coverImage?.alt ?? article.title"
-        class="w-full h-full object-cover block"
-        loading="eager"
-      />
-    </div>
+      <!-- Colonne texte -->
+      <div class="flex-1 min-w-0">
 
-    <!-- Contenu centré -->
-    <div class="max-w-[740px] mx-auto">
+        <!-- Breadcrumb -->
+        <nav class="flex items-center gap-2 mb-7 text-[0.8rem]">
+          <a
+            href="/ressources/"
+            class="text-accent no-underline font-medium hover:text-white transition-colors"
+          >
+            Ressources
+          </a>
+          <span class="text-white/30">/</span>
+          <span class="text-white/45 truncate max-w-[220px]">{{ article.title }}</span>
+        </nav>
 
-      <!-- Header article -->
-      <div class="mb-10">
-        <span class="text-[0.8rem] font-medium text-text-light uppercase tracking-[0.05em] block mb-3">
+        <!-- Date -->
+        <span class="text-[0.78rem] font-semibold text-accent uppercase tracking-[0.1em] block mb-4">
           {{ formattedDate }}
         </span>
-        <h1 class="font-heading text-[clamp(2rem,4vw,2.8rem)] text-primary leading-[1.2] mb-5">
+
+        <!-- Titre -->
+        <h1 class="font-heading text-[clamp(1.75rem,3.5vw,2.75rem)] text-white leading-[1.2] mb-6">
           {{ article.title }}
         </h1>
-        <p v-if="article.excerpt" class="text-[1.05rem] text-text-light leading-[1.75] font-heading italic border-l-[3px] border-accent pl-5">
+
+        <!-- Excerpt -->
+        <p
+          v-if="article.excerpt"
+          class="font-heading italic text-[1rem] text-white/65 leading-[1.8] border-l-[3px] border-accent pl-5"
+        >
           {{ article.excerpt }}
         </p>
+
       </div>
 
-      <!-- Corps de l'article (Portable Text) -->
+      <!-- Image -->
+      <div
+        v-if="coverUrl"
+        class="shrink-0 w-full md:w-[260px] h-[200px] md:h-[280px] rounded-2xl overflow-hidden bg-primary-light"
+      >
+        <img
+          :src="coverUrl"
+          :alt="article.coverImage?.alt ?? article.title"
+          class="w-full h-full object-cover block"
+          loading="eager"
+        />
+      </div>
+
+    </div>
+
+    <!-- ── CORPS ─────────────────────────────────────── -->
+    <div class="max-w-[740px] mx-auto">
+
       <div class="prose-wado">
         <BlogPortableText :value="(article.body as unknown[])" />
       </div>
 
+      <!-- CTA coaching -->
+      <div class="mt-16 bg-accent/[0.06] border border-accent/25 rounded-2xl p-8 flex flex-col md:flex-row items-center gap-6">
+        <div class="flex-1">
+          <p class="font-heading text-[1.25rem] text-primary leading-[1.3] mb-2">Envie d'aller plus loin ?</p>
+          <p class="text-[0.9rem] text-text-light leading-[1.7]">
+            Découvrez les accompagnements WadoCoaching — coaching individuel, d'équipe et formation.
+          </p>
+        </div>
+        <a
+          href="/#coaching"
+          class="shrink-0 inline-block px-6 py-3 bg-accent text-white font-semibold rounded-lg no-underline text-[0.9rem] transition-all hover:bg-primary-light hover:-translate-y-0.5"
+        >
+          Explorer les accompagnements
+        </a>
+      </div>
+
       <!-- Retour -->
-      <div class="mt-16 pt-8 border-t border-border">
+      <div class="mt-8 pt-8 border-t border-border">
         <a
           href="/ressources/"
           class="text-[0.9rem] font-medium text-accent no-underline transition-colors hover:text-primary-light"
@@ -126,13 +162,13 @@ watch(article, (a) => {
 
   <!-- Skeleton -->
   <div v-else-if="loading" class="animate-pulse">
-    <div class="w-full h-[300px] md:h-[460px] rounded-2xl bg-border mb-10"></div>
-    <div class="max-w-[740px] mx-auto">
-      <div class="h-4 bg-border rounded w-1/4 mb-4"></div>
-      <div class="h-10 bg-border rounded w-3/4 mb-4"></div>
-      <div class="h-5 bg-border rounded w-full mb-3"></div>
-      <div class="h-5 bg-border rounded w-5/6 mb-3"></div>
+    <div class="bg-border rounded-2xl h-[260px] mb-14"></div>
+    <div class="max-w-[740px] mx-auto flex flex-col gap-4">
+      <div class="h-5 bg-border rounded w-full"></div>
+      <div class="h-5 bg-border rounded w-5/6"></div>
       <div class="h-5 bg-border rounded w-4/6"></div>
+      <div class="h-5 bg-border rounded w-full mt-4"></div>
+      <div class="h-5 bg-border rounded w-3/4"></div>
     </div>
   </div>
 
@@ -143,4 +179,5 @@ watch(article, (a) => {
       ← Retour aux ressources
     </a>
   </div>
+
 </template>
