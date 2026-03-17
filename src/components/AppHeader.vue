@@ -2,9 +2,9 @@
   <header class="bg-primary px-8 fixed top-0 left-0 w-full z-[1000]">
     <div class="max-w-[1200px] mx-auto h-20 flex justify-between items-center">
 
-      <a href="/" class="flex items-center no-underline">
+      <RouterLink to="/" class="flex items-center no-underline">
         <img src="/images/logo.svg" alt="WadoCoaching" class="h-[45px] w-auto">
-      </a>
+      </RouterLink>
 
       <nav>
         <ul
@@ -47,58 +47,58 @@
               class="list-none pl-4 md:pl-0 md:absolute md:top-full md:left-[-1rem] md:bg-primary md:border md:border-white/10 md:rounded-xl md:shadow-2xl md:min-w-[260px] md:pt-4 md:pb-2 flex flex-col"
             >
               <li>
-                <a
-                  href="/ancrage/"
-                  :class="['flex flex-col px-4 py-3 no-underline transition-colors hover:bg-white/[0.05] rounded-lg', activePath === '/ancrage/' ? 'bg-white/[0.05]' : '']"
+                <RouterLink
+                  to="/ancrage/"
+                  :class="['flex flex-col px-4 py-3 no-underline transition-colors hover:bg-white/[0.05] rounded-lg', route.path === '/ancrage/' ? 'bg-white/[0.05]' : '']"
                   @click="close"
                 >
-                  <span :class="['text-[0.9rem] font-semibold transition-colors', activePath === '/ancrage/' ? 'text-accent' : 'text-white']">Ancrage</span>
+                  <span :class="['text-[0.9rem] font-semibold transition-colors', route.path === '/ancrage/' ? 'text-accent' : 'text-white']">Ancrage</span>
                   <span class="text-white/45 text-[0.78rem] mt-0.5">Coaching individuel</span>
-                </a>
+                </RouterLink>
               </li>
               <li>
-                <a
-                  href="/ma-ai/"
-                  :class="['flex flex-col px-4 py-3 no-underline transition-colors hover:bg-white/[0.05] rounded-lg', activePath === '/ma-ai/' ? 'bg-white/[0.05]' : '']"
+                <RouterLink
+                  to="/ma-ai/"
+                  :class="['flex flex-col px-4 py-3 no-underline transition-colors hover:bg-white/[0.05] rounded-lg', route.path === '/ma-ai/' ? 'bg-white/[0.05]' : '']"
                   @click="close"
                 >
-                  <span :class="['text-[0.9rem] font-semibold transition-colors', activePath === '/ma-ai/' ? 'text-accent' : 'text-white']">Ma-aï</span>
+                  <span :class="['text-[0.9rem] font-semibold transition-colors', route.path === '/ma-ai/' ? 'text-accent' : 'text-white']">Ma-aï</span>
                   <span class="text-white/45 text-[0.78rem] mt-0.5">Coaching d'équipe</span>
-                </a>
+                </RouterLink>
               </li>
               <li>
-                <a
-                  href="/bunkai/"
-                  :class="['flex flex-col px-4 py-3 no-underline transition-colors hover:bg-white/[0.05] rounded-lg', activePath === '/bunkai/' ? 'bg-white/[0.05]' : '']"
+                <RouterLink
+                  to="/bunkai/"
+                  :class="['flex flex-col px-4 py-3 no-underline transition-colors hover:bg-white/[0.05] rounded-lg', route.path === '/bunkai/' ? 'bg-white/[0.05]' : '']"
                   @click="close"
                 >
-                  <span :class="['text-[0.9rem] font-semibold transition-colors', activePath === '/bunkai/' ? 'text-accent' : 'text-white']">Bunkai</span>
+                  <span :class="['text-[0.9rem] font-semibold transition-colors', route.path === '/bunkai/' ? 'text-accent' : 'text-white']">Bunkai</span>
                   <span class="text-white/45 text-[0.78rem] mt-0.5">Ateliers de pratiques réflexives</span>
-                </a>
+                </RouterLink>
               </li>
             </ul>
           </li>
 
           <li class="border-b border-white/[0.08] md:border-0">
-            <a
-              href="/qui-suis-je/"
-              :class="['nav-link block py-[0.85rem] md:py-0 no-underline text-white/85 text-[0.95rem] font-medium transition-colors hover:text-white', activePath === '/qui-suis-je/' ? 'nav-active' : '']"
+            <RouterLink
+              to="/qui-suis-je/"
+              :class="['nav-link block py-[0.85rem] md:py-0 no-underline text-white/85 text-[0.95rem] font-medium transition-colors hover:text-white', route.path === '/qui-suis-je/' ? 'nav-active' : '']"
               @click="close"
-            >Qui suis-je</a>
+            >Qui suis-je</RouterLink>
           </li>
           <li class="border-b border-white/[0.08] md:border-0">
-            <a
-              href="/ressources/"
-              :class="['nav-link block py-[0.85rem] md:py-0 no-underline text-white/85 text-[0.95rem] font-medium transition-colors hover:text-white', activePath.startsWith('/ressources') ? 'nav-active' : '']"
+            <RouterLink
+              to="/ressources"
+              :class="['nav-link block py-[0.85rem] md:py-0 no-underline text-white/85 text-[0.95rem] font-medium transition-colors hover:text-white', route.path.startsWith('/ressources') ? 'nav-active' : '']"
               @click="close"
-            >Ressources</a>
+            >Ressources</RouterLink>
           </li>
           <li class="border-b border-white/[0.08] md:border-0">
-            <a
-              href="/contact/"
-              :class="['nav-link block py-[0.85rem] md:py-0 no-underline text-white/85 text-[0.95rem] font-medium transition-colors hover:text-white', activePath === '/contact/' ? 'nav-active' : '']"
+            <RouterLink
+              to="/contact/"
+              :class="['nav-link block py-[0.85rem] md:py-0 no-underline text-white/85 text-[0.95rem] font-medium transition-colors hover:text-white', route.path === '/contact/' ? 'nav-active' : '']"
               @click="close"
-            >Contact</a>
+            >Contact</RouterLink>
           </li>
           <li class="pt-4 md:pt-0">
             <a
@@ -128,21 +128,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed } from 'vue'
+import { useRoute } from 'vue-router'
 
-withDefaults(defineProps<{ prefix?: string }>(), { prefix: '' })
-
+const route = useRoute()
 const isOpen = ref<boolean>(false)
 const offersOpen = ref<boolean>(false)
-const activePath = ref<string>('')
 
 const offersActive = computed<boolean>(() =>
-  ['/ancrage/', '/ma-ai/', '/bunkai/'].some(p => activePath.value.startsWith(p))
+  ['/ancrage/', '/ma-ai/', '/bunkai/'].some(p => route.path.startsWith(p))
 )
-
-onMounted(() => {
-  activePath.value = window.location.pathname
-})
 
 function toggle(): void {
   isOpen.value = !isOpen.value
