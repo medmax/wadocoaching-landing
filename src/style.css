@@ -82,6 +82,22 @@
 .burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
 /* -----------------------------------------------
+   FOCUS VISIBLE — accessibilité clavier
+----------------------------------------------- */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: none; /* géré par border-color via Tailwind */
+  }
+}
+
+/* -----------------------------------------------
    NAV LINK — SOULIGNEMENT ANIMÉ
 ----------------------------------------------- */
 .nav-link {
@@ -99,6 +115,9 @@
   transition: width 0.3s ease;
 }
 .nav-link:hover::after { width: 100%; }
+/* Page active : underline toujours visible */
+.nav-link.nav-active { color: white; }
+.nav-link.nav-active::after { width: 100%; }
 
 /* -----------------------------------------------
    COACHING CARD — FLÈCHE LISTE

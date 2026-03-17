@@ -26,10 +26,15 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        home:       resolve(__dirname, 'index.html'),
-        mentions:   resolve(__dirname, 'mentions-legales.html'),
-        politique:  resolve(__dirname, 'politique-confidentialite.html'),
-        ressources: resolve(__dirname, 'ressources/index.html'),
+        home:         resolve(__dirname, 'index.html'),
+        mentions:     resolve(__dirname, 'mentions-legales.html'),
+        politique:    resolve(__dirname, 'politique-confidentialite.html'),
+        ressources:   resolve(__dirname, 'ressources/index.html'),
+        ancrage:      resolve(__dirname, 'ancrage/index.html'),
+        maai:         resolve(__dirname, 'ma-ai/index.html'),
+        bunkai:       resolve(__dirname, 'bunkai/index.html'),
+        quisuisje:    resolve(__dirname, 'qui-suis-je/index.html'),
+        contact:      resolve(__dirname, 'contact/index.html'),
       }
     }
   }
