@@ -13,7 +13,7 @@
 
         <div class="flex gap-16 flex-wrap">
           <div>
-            <p class="text-[0.75rem] font-semibold uppercase tracking-[1.5px] text-white/30 mb-4">Les offres</p>
+            <p class="text-[0.75rem] font-semibold uppercase tracking-[1.5px] text-white/30 mb-4">Les accompagnements</p>
             <nav class="flex flex-col gap-3">
               <a href="/ancrage/" class="no-underline text-white/65 text-[0.9rem] transition-colors hover:text-white">Ancrage <span class="text-white/30 text-[0.78rem]">— Coaching individuel</span></a>
               <a href="/ma-ai/" class="no-underline text-white/65 text-[0.9rem] transition-colors hover:text-white">Ma-aï <span class="text-white/30 text-[0.78rem]">— Coaching d'équipe</span></a>

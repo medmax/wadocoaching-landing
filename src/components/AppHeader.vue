@@ -32,7 +32,7 @@
               ]"
               @click="toggleOffers"
             >
-              Les offres
+              Les accompagnements
               <svg
                 :class="['w-3.5 h-3.5 transition-transform duration-200 shrink-0', offersOpen ? 'rotate-180' : '']"
                 fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"
