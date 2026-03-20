@@ -96,6 +96,17 @@
                 ></textarea>
               </div>
 
+              <!-- Honeypot — invisible pour les humains, rempli par les bots -->
+              <input
+                v-model="honeypot"
+                type="text"
+                name="website"
+                tabindex="-1"
+                autocomplete="off"
+                aria-hidden="true"
+                style="position:absolute;left:-9999px;opacity:0;pointer-events:none;"
+              >
+
               <p v-if="formError" class="text-[0.85rem] text-red-500">{{ formError }}</p>
 
               <button
@@ -188,6 +199,7 @@ const nom = ref('')
 const email = ref('')
 const offre = ref('')
 const message = ref('')
+const honeypot = ref('')
 const submitting = ref(false)
 const formError = ref('')
 const formSuccess = ref(false)
@@ -211,6 +223,7 @@ async function submitForm(): Promise<void> {
         email: email.value.trim(),
         message: message.value.trim(),
         offre: offre.value || 'Non précisé',
+        website: honeypot.value,
       }),
     })
 

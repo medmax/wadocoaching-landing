@@ -1,6 +1,9 @@
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
-  const { nom, email, message, offre } = body ?? {}
+  const { nom, email, message, offre, website } = body ?? {}
+
+  // Honeypot — un humain ne remplit jamais ce champ
+  if (website) return { ok: true }
 
   if (!nom?.trim() || !email?.trim() || !message?.trim()) {
     throw createError({ statusCode: 400, message: 'Champs obligatoires manquants.' })
