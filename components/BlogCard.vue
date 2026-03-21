@@ -43,9 +43,16 @@ const href = computed(() => `/ressources/${props.article.slug.current}`)
       />
     </div>
     <div class="p-6 flex flex-col gap-2">
-      <span class="text-[0.8rem] font-medium text-text-light uppercase tracking-[0.05em]">
-        {{ formattedDate }}
-      </span>
+      <div class="flex items-center gap-2 flex-wrap">
+        <span class="text-[0.8rem] font-medium text-text-light uppercase tracking-[0.05em]">
+          {{ formattedDate }}
+        </span>
+        <span
+          v-for="cat in article.categories"
+          :key="cat._id"
+          class="text-[0.72rem] font-semibold text-accent bg-accent/[0.08] border border-accent/25 rounded-full px-2.5 py-0.5"
+        >{{ cat.title }}</span>
+      </div>
       <h3 class="font-heading text-[1.2rem] text-primary leading-[1.4]">
         {{ article.title }}
       </h3>

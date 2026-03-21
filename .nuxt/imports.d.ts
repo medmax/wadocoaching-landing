@@ -30,5 +30,5 @@ export { requestIdleCallback, cancelIdleCallback } from '#app/compat/idle-callba
 export { setInterval } from '#app/compat/interval';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';
 export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
-export { getSanityClient, urlFor, ALL_ARTICLES_QUERY, latestArticlesQuery, ARTICLE_BY_SLUG_QUERY, ArticlePreview, ArticleFull } from '../utils/sanity';
+export { getSanityClient, urlFor, ALL_CATEGORIES_QUERY, ALL_ARTICLES_QUERY, latestArticlesQuery, ARTICLE_BY_SLUG_QUERY, Category, ArticlePreview, ArticleFull } from '../utils/sanity';
 export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';

@@ -2,6 +2,7 @@
 export {}
 declare global {
   const ALL_ARTICLES_QUERY: typeof import('../../utils/sanity').ALL_ARTICLES_QUERY
+  const ALL_CATEGORIES_QUERY: typeof import('../../utils/sanity').ALL_CATEGORIES_QUERY
   const ARTICLE_BY_SLUG_QUERY: typeof import('../../utils/sanity').ARTICLE_BY_SLUG_QUERY
   const abortNavigation: typeof import('../../node_modules/nuxt/dist/app/composables/router').abortNavigation
   const addRouteMiddleware: typeof import('../../node_modules/nuxt/dist/app/composables/router').addRouteMiddleware
@@ -187,7 +188,7 @@ declare global {
   export type { Component, ComponentPublicInstance, ComputedRef, DirectiveBinding, ExtractDefaultPropTypes, ExtractPropTypes, ExtractPublicPropTypes, InjectionKey, PropType, Ref, MaybeRef, MaybeRefOrGetter, VNode, WritableComputedRef } from '../../node_modules/vue'
   import('../../node_modules/vue')
   // @ts-ignore
-  export type { ArticlePreview, ArticleFull } from '../../utils/sanity'
+  export type { Category, ArticlePreview, ArticleFull } from '../../utils/sanity'
   import('../../utils/sanity')
 }
 // for vue template auto import
@@ -195,6 +196,7 @@ import { UnwrapRef } from 'vue'
 declare module 'vue' {
   interface ComponentCustomProperties {
     readonly ALL_ARTICLES_QUERY: UnwrapRef<typeof import('../../utils/sanity')['ALL_ARTICLES_QUERY']>
+    readonly ALL_CATEGORIES_QUERY: UnwrapRef<typeof import('../../utils/sanity')['ALL_CATEGORIES_QUERY']>
     readonly ARTICLE_BY_SLUG_QUERY: UnwrapRef<typeof import('../../utils/sanity')['ARTICLE_BY_SLUG_QUERY']>
     readonly abortNavigation: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['abortNavigation']>
     readonly addRouteMiddleware: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['addRouteMiddleware']>

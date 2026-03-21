@@ -21,6 +21,12 @@ export function urlFor(source: SanityImageSource) {
   return builder.image(source)
 }
 
+export interface Category {
+  _id:   string
+  title: string
+  slug:  { current: string }
+}
+
 export interface ArticlePreview {
   _id:         string
   title:       string
@@ -28,15 +34,23 @@ export interface ArticlePreview {
   publishedAt: string
   excerpt:     string
   coverImage:  SanityImageSource & { alt: string }
+  categories:  Category[]
 }
 
 export interface ArticleFull extends ArticlePreview {
   body: unknown[]
 }
 
+export const ALL_CATEGORIES_QUERY = `
+  *[_type == "category"] | order(title asc) {
+    _id, title, slug
+  }
+`
+
 export const ALL_ARTICLES_QUERY = `
   *[_type == "article" && defined(slug.current) && defined(publishedAt)] | order(publishedAt desc) {
-    _id, title, slug, publishedAt, excerpt, coverImage { ..., alt }
+    _id, title, slug, publishedAt, excerpt, coverImage { ..., alt },
+    categories[]->{ _id, title, slug }
   }
 `
 

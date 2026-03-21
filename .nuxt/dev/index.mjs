@@ -2949,7 +2949,8 @@ const styles$1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
 
 const contact = defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const { nom, email, message, offre } = body != null ? body : {};
+  const { nom, email, message, offre, website } = body != null ? body : {};
+  if (website) return { ok: true };
   if (!(nom == null ? void 0 : nom.trim()) || !(email == null ? void 0 : email.trim()) || !(message == null ? void 0 : message.trim())) {
     throw createError({ statusCode: 400, message: "Champs obligatoires manquants." });
   }
