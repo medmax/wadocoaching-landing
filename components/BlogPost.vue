@@ -2,8 +2,7 @@
 import { getSanityClient, urlFor, ARTICLE_BY_SLUG_QUERY } from '~/utils/sanity'
 import type { ArticleFull } from '~/utils/sanity'
 
-const props  = defineProps<{ slug: string }>()
-const router = useRouter()
+const props = defineProps<{ slug: string }>()
 
 const article = ref<ArticleFull | null>(null)
 const loading = ref(true)
@@ -126,6 +125,25 @@ watch(article, (a) => {
 
       <div class="prose-wado">
         <BlogPortableText :value="(article.body as unknown[])" />
+      </div>
+
+      <!-- PDF téléchargeable -->
+      <div v-if="article.attachment?.asset?.url" class="mt-10 flex items-center gap-4 bg-bg border border-border rounded-2xl px-6 py-5">
+        <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h4a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+          </svg>
+        </div>
+        <div class="flex-1">
+          <p class="text-[0.9rem] font-semibold text-primary">{{ article.attachment.label ?? 'Télécharger le PDF' }}</p>
+        </div>
+        <a
+          :href="article.attachment.asset.url"
+          target="_blank"
+          rel="noopener"
+          download
+          class="shrink-0 inline-block px-5 py-2.5 bg-accent text-white font-semibold rounded-lg no-underline text-[0.85rem] transition-all hover:bg-primary-light hover:-translate-y-0.5"
+        >Télécharger →</a>
       </div>
 
       <!-- CTA coaching -->

@@ -47,6 +47,22 @@ export default defineType({
       ],
     }),
     defineField({
+      name: 'attachment',
+      title: 'Fichier PDF téléchargeable',
+      description: 'Optionnel — un PDF que le lecteur peut télécharger depuis l\'article.',
+      type: 'file',
+      options: {accept: 'application/pdf'},
+      fields: [
+        defineField({
+          name: 'label',
+          title: 'Libellé du bouton',
+          type: 'string',
+          description: 'Ex : "Télécharger la fiche", "Accéder au guide"',
+          initialValue: 'Télécharger le PDF',
+        }),
+      ],
+    }),
+    defineField({
       name: 'categories',
       title: 'Catégories',
       type: 'array',

@@ -39,6 +39,10 @@ export interface ArticlePreview {
 
 export interface ArticleFull extends ArticlePreview {
   body: unknown[]
+  attachment?: {
+    asset: { url: string }
+    label?: string
+  }
 }
 
 export const ALL_CATEGORIES_QUERY = `
@@ -63,6 +67,8 @@ export const latestArticlesQuery = (n = 3) => `
 export const ARTICLE_BY_SLUG_QUERY = `
   *[_type == "article" && slug.current == $slug][0] {
     _id, title, slug, publishedAt, excerpt, coverImage { ..., alt },
+    categories[]->{ _id, title, slug },
+    attachment { label, asset->{ url } },
     body[] {
       ...,
       _type == "image" => { ..., asset-> }
