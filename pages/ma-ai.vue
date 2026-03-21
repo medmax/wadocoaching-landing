@@ -156,5 +156,20 @@ useHead({
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:image', content: 'https://www.wadocoaching.com/images/coaching-equipe.jpg' },
   ],
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      '@id': 'https://www.wadocoaching.com/ma-ai/#service',
+      'name': 'Ma-aï — Coaching d\'équipe',
+      'serviceType': 'Coaching d\'équipe',
+      'description': 'Coaching d\'équipe centré sur la cohésion, la cohérence et le sens commun. Un travail de fond pour les équipes qui veulent passer un cap ensemble.',
+      'url': 'https://www.wadocoaching.com/ma-ai/',
+      'provider': { '@id': 'https://www.wadocoaching.com/#organization' },
+      'audience': { '@type': 'Audience', 'audienceType': 'Équipes, DRH, directeurs' },
+      'areaServed': { '@type': 'Country', 'name': 'France' },
+    }),
+  }],
 })
 </script>

@@ -39,26 +39,37 @@ const coverUrl = computed(() => {
   return urlFor(article.value.coverImage).width(560).height(600).auto('format').quality(85).url()
 })
 
-// SEO dynamique
-watch(article, (a) => {
-  if (!a) return
-  document.title = `${a.title} — WadoCoaching`
+// SEO dynamique SSR-compatible
+const seoTitle = computed(() => article.value ? `${article.value.title} — WadoCoaching` : 'Ressources — WadoCoaching')
+const seoDescription = computed(() => article.value?.excerpt ?? '')
+const seoUrl = computed(() => article.value ? `https://www.wadocoaching.com/ressources/${article.value.slug.current}` : '')
+const seoImage = computed(() => article.value?.coverImage ? urlFor(article.value.coverImage).width(1200).height(630).auto('format').url() : '')
 
-  const setMeta = (selector: string, content: string) => {
-    const el = document.querySelector<HTMLMetaElement>(selector)
-    if (el) el.content = content
-  }
-
-  setMeta('meta[name="description"]', a.excerpt ?? '')
-  setMeta('meta[property="og:title"]', `${a.title} — WadoCoaching`)
-  setMeta('meta[property="og:description"]', a.excerpt ?? '')
-  setMeta('meta[property="og:url"]', `https://www.wadocoaching.com/ressources/${a.slug.current}`)
-
-  if (a.coverImage) {
-    const ogImg = urlFor(a.coverImage).width(1200).height(630).auto('format').url()
-    setMeta('meta[property="og:image"]', ogImg)
-    setMeta('meta[name="twitter:image"]', ogImg)
-  }
+useHead({
+  title: seoTitle,
+  meta: [
+    { name: 'description', content: seoDescription },
+    { property: 'og:title', content: seoTitle },
+    { property: 'og:description', content: seoDescription },
+    { property: 'og:url', content: seoUrl },
+    { property: 'og:image', content: seoImage },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:image', content: seoImage },
+  ],
+  script: computed(() => article.value ? [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      'headline': article.value.title,
+      'description': article.value.excerpt ?? '',
+      'datePublished': article.value.publishedAt,
+      'author': { '@type': 'Person', '@id': 'https://www.wadocoaching.com/qui-suis-je/#person', 'name': 'Mehdi Soudsane' },
+      'publisher': { '@id': 'https://www.wadocoaching.com/#organization' },
+      'url': seoUrl.value,
+      ...(seoImage.value && { 'image': seoImage.value }),
+    }),
+  }] : []),
 })
 </script>
 

@@ -232,5 +232,23 @@ useHead({
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:image', content: 'https://www.wadocoaching.com/images/Photo1.jpg' },
   ],
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Person',
+      '@id': 'https://www.wadocoaching.com/qui-suis-je/#person',
+      'name': 'Mehdi Soudsane',
+      'jobTitle': 'Coach Professionnel certifié ACC/ICF',
+      'url': 'https://www.wadocoaching.com/qui-suis-je/',
+      'image': 'https://www.wadocoaching.com/images/Photo1.jpg',
+      'worksFor': { '@id': 'https://www.wadocoaching.com/#organization' },
+      'hasCredential': [
+        { '@type': 'EducationalOccupationalCredential', 'name': 'Certification ACC — International Coaching Federation (ICF)' },
+        { '@type': 'EducationalOccupationalCredential', 'name': 'Coach professionnel — titre RNCP' },
+      ],
+      'knowsAbout': ['Coaching professionnel', 'Management', 'Leadership', 'Coaching d\'équipe', 'Intelligence collective'],
+    }),
+  }],
 })
 </script>

@@ -42,12 +42,25 @@ export default defineNuxtConfig({
           async: true,
         },
         { src: '/calendly.js', defer: true },
-        // Umami Analytics (cookieless — remplace GA4)
-        // Remplace YOUR_UMAMI_WEBSITE_ID par ton ID depuis le dashboard Umami
         {
           src: 'https://analytics.umami.is/script.js',
           'data-website-id': 'd13e2566-5fbc-4feb-ac17-92ec097666cd',
           defer: true,
+        },
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            '@id': 'https://www.wadocoaching.com/#organization',
+            'name': 'WadoCoaching',
+            'url': 'https://www.wadocoaching.com',
+            'logo': 'https://www.wadocoaching.com/images/logo.svg',
+            'description': 'Cabinet de coaching professionnel certifié ACC/ICF. Coaching individuel, coaching d\'équipe et ateliers de pratiques réflexives.',
+            'email': 'mehdi@wadocoaching.com',
+            'areaServed': { '@type': 'Country', 'name': 'France' },
+            'founder': { '@type': 'Person', '@id': 'https://www.wadocoaching.com/qui-suis-je/#person' },
+          }),
         },
       ],
     },

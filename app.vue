@@ -16,7 +16,14 @@
 
 <script setup lang="ts">
 const router = useRouter()
+const route = useRoute()
 const showBackToTop = ref(false)
+
+// Canonical automatique
+const canonicalUrl = computed(() =>
+  `https://www.wadocoaching.com${route.path.endsWith('/') ? route.path : route.path + '/'}`,
+)
+useHead({ link: [{ rel: 'canonical', href: canonicalUrl }] })
 
 let io: IntersectionObserver | null = null
 

@@ -227,5 +227,20 @@ useHead({
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:image', content: 'https://www.wadocoaching.com/images/coaching-manager.jpg' },
   ],
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      '@id': 'https://www.wadocoaching.com/bunkai/#service',
+      'name': 'Bunkai — Ateliers de pratiques réflexives',
+      'serviceType': 'Formation managériale et ateliers réflexifs',
+      'description': 'Ateliers de pratiques réflexives pour ancrer les savoir-être managériaux sur le terrain. 20% de théorie, 80% de pratique.',
+      'url': 'https://www.wadocoaching.com/bunkai/',
+      'provider': { '@id': 'https://www.wadocoaching.com/#organization' },
+      'audience': { '@type': 'Audience', 'audienceType': 'Organisations, équipes managériales, DRH' },
+      'areaServed': { '@type': 'Country', 'name': 'France' },
+    }),
+  }],
 })
 </script>

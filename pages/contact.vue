@@ -189,7 +189,10 @@ useHead({
     { name: 'description', content: 'Contactez Mehdi Soudsane — WadoCoaching. Une question sur les offres Ancrage, Ma-aï ou Bunkai ? Écrivez-moi ou réservez directement un échange de 30 minutes.' },
     { property: 'og:title', content: 'Contact | WadoCoaching' },
     { property: 'og:description', content: 'Une question ? Réservez un premier échange ou envoyez un message directement.' },
+    { property: 'og:image', content: 'https://www.wadocoaching.com/images/Photo1.jpg' },
     { property: 'og:url', content: 'https://www.wadocoaching.com/contact/' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:image', content: 'https://www.wadocoaching.com/images/Photo1.jpg' },
   ],
 })
 

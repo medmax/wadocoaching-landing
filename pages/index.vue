@@ -169,7 +169,7 @@
         <div class="temoignage-card bg-white border border-border rounded-2xl px-6 pt-4 pb-5 flex flex-col gap-2 transition-colors hover:bg-bg fade-in d1">
           <p class="text-[0.88rem] text-primary leading-[1.75] flex-1">Une personne humaine et à l'écoute ! Il a su me donner les clefs pour me redonner confiance et motivation dans ma recherche d'emploi, avec des résultats qui se sont montrés très efficaces !</p>
           <div class="flex items-center gap-4">
-            <img src="/images/femme.png" alt="" class="w-9 h-9 rounded-full shrink-0">
+            <img src="/images/femme.png" alt="Photo de profil — Lotus" class="w-9 h-9 rounded-full shrink-0">
             <div>
               <span class="font-heading text-[1rem] text-accent block">Lotus</span>
             </div>
@@ -179,7 +179,7 @@
         <div class="temoignage-card bg-white/[0.06] border border-white/10 rounded-2xl px-6 pt-4 pb-5 flex flex-col gap-2 transition-colors hover:bg-white/10 fade-in d2">
           <p class="text-[0.88rem] text-white/75 leading-[1.75] flex-1">Je recommande vivement Mehdi pour un coaching professionnel. Sa recette : professionnalisme, structure, bienveillance, patience, utilisation d'outils pertinents, flexibilité... En peu de temps j'ai pu voir ma situation professionnelle évoluer de manière concrète.</p>
           <div class="flex items-center gap-4">
-            <img src="/images/femme.png" alt="" class="w-9 h-9 rounded-full shrink-0">
+            <img src="/images/femme.png" alt="Photo de profil — Romane" class="w-9 h-9 rounded-full shrink-0">
             <div>
               <span class="font-heading text-[1rem] text-accent block">Romane</span>
             </div>
@@ -189,7 +189,7 @@
         <div class="temoignage-card bg-white border border-border rounded-2xl px-6 pt-4 pb-5 flex flex-col gap-2 transition-colors hover:bg-bg fade-in d3">
           <p class="text-[0.88rem] text-primary leading-[1.75] flex-1">Mehdi est un coach professionnel remarquable qui m'accompagne avec attention et une grande empathie. Doté d'une écoute active et d'une remarquable capacité à recentrer les besoins, il me soutient dans l'atteinte de mes objectifs avec bienveillance.</p>
           <div class="flex items-center gap-4">
-            <img src="/images/femme.png" alt="" class="w-9 h-9 rounded-full shrink-0">
+            <img src="/images/femme.png" alt="Photo de profil — Floriane" class="w-9 h-9 rounded-full shrink-0">
             <div>
               <span class="font-heading text-[1rem] text-accent block">Floriane</span>
             </div>
@@ -199,7 +199,7 @@
         <div class="temoignage-card bg-white border border-border rounded-2xl px-6 pt-4 pb-5 flex flex-col gap-2 transition-colors hover:bg-bg fade-in d1">
           <p class="text-[0.88rem] text-primary leading-[1.75] flex-1">Mehdi est un excellent coach professionnel qui accompagne ses clients avec beaucoup de soins et d'empathie. Il m'a aidé à atteindre mes objectifs même si ceux-ci étaient ambitieux. C'est un coach que je recommande les yeux fermés.</p>
           <div class="flex items-center gap-4">
-            <img src="/images/femme.png" alt="" class="w-9 h-9 rounded-full shrink-0">
+            <img src="/images/femme.png" alt="Photo de profil — Emilie" class="w-9 h-9 rounded-full shrink-0">
             <div>
               <span class="font-heading text-[1rem] text-accent block">Emilie</span>
             </div>
@@ -209,7 +209,7 @@
         <div class="temoignage-card bg-white/[0.06] border border-white/10 rounded-2xl px-6 pt-4 pb-5 flex flex-col gap-2 transition-colors hover:bg-white/10 fade-in d2">
           <p class="text-[0.88rem] text-white/75 leading-[1.75] flex-1">Pour mon lancement d'activité, j'avais besoin d'être challengée sur mes croyances, ma vision et ma mission. Mehdi a su être juste, précis et efficace dans son accompagnement avec moi.</p>
           <div class="flex items-center gap-4">
-            <img src="/images/femme.png" alt="" class="w-9 h-9 rounded-full shrink-0">
+            <img src="/images/femme.png" alt="Photo de profil — Claire" class="w-9 h-9 rounded-full shrink-0">
             <div>
               <span class="font-heading text-[1rem] text-accent block">Claire</span>
             </div>
@@ -219,7 +219,7 @@
         <div class="temoignage-card bg-white border border-border rounded-2xl px-6 pt-4 pb-5 flex flex-col gap-2 transition-colors hover:bg-bg fade-in d3">
           <p class="text-[0.88rem] text-primary leading-[1.75] flex-1">Grâce au travail fait ensemble et à son questionnement, j'ai considérablement amélioré mon organisation et mon efficacité. Son approche personnalisée et son professionnalisme en font un coach exceptionnel.</p>
           <div class="flex items-center gap-4">
-            <img src="/images/homme.png" alt="" class="w-9 h-9 rounded-full shrink-0">
+            <img src="/images/homme.png" alt="Photo de profil — Arthur" class="w-9 h-9 rounded-full shrink-0">
             <div>
               <span class="font-heading text-[1rem] text-accent block">Arthur</span>
             </div>

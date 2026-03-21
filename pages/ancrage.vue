@@ -165,5 +165,20 @@ useHead({
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:image', content: 'https://www.wadocoaching.com/images/coaching-manager.jpg' },
   ],
+  script: [{
+    type: 'application/ld+json',
+    innerHTML: JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      '@id': 'https://www.wadocoaching.com/ancrage/#service',
+      'name': 'Ancrage — Coaching individuel',
+      'serviceType': 'Coaching professionnel individuel',
+      'description': 'Un espace de coaching individuel pour clarifier, décider et passer à l\'action. Coaching de managers, de cadres en prise de poste ou en transition professionnelle.',
+      'url': 'https://www.wadocoaching.com/ancrage/',
+      'provider': { '@id': 'https://www.wadocoaching.com/#organization' },
+      'audience': { '@type': 'Audience', 'audienceType': 'Managers, cadres, professionnels en transition' },
+      'areaServed': { '@type': 'Country', 'name': 'France' },
+    }),
+  }],
 })
 </script>

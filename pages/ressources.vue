@@ -12,7 +12,10 @@ useHead({
   meta: [
     { name: 'description', content: 'Articles et ressources sur le coaching professionnel et le management par WadoCoaching.' },
     { property: 'og:title', content: 'Ressources — WadoCoaching' },
-    { property: 'og:url', content: 'https://www.wadocoaching.com/ressources' },
+    { property: 'og:image', content: 'https://www.wadocoaching.com/images/hero-bg.jpg' },
+    { property: 'og:url', content: 'https://www.wadocoaching.com/ressources/' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:image', content: 'https://www.wadocoaching.com/images/hero-bg.jpg' },
   ],
 })
 </script>
