@@ -44,7 +44,7 @@ export default defineNuxtConfig({
         },
         { src: '/calendly.js', defer: true },
         {
-          src: 'https://analytics.umami.is/script.js',
+          src: 'https://cloud.umami.is/script.js',
           'data-website-id': 'd13e2566-5fbc-4feb-ac17-92ec097666cd',
           defer: true,
         },
