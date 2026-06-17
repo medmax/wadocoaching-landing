@@ -631,11 +631,11 @@ function onKey(e: KeyboardEvent) {
 }
 
 useHead({
-  title: 'Diagnostic managérial — Les 4 piliers | WadoCoaching',
+  title: 'Diagnostic managérial | WadoCoaching',
   meta: [
-    { name: 'description', content: "Auto-diagnostic sur vos 4 savoir-être managériaux : Écoute active, Culture du feedback, Assertivité, Cultiver l'autonomie. 24 questions, résultat immédiat." },
-    { property: 'og:title', content: 'Diagnostic managérial — Les 4 piliers | WadoCoaching' },
-    { property: 'og:description', content: "24 questions pour vous situer sur les 4 piliers managériaux travaillés en atelier Bunkai." },
+    { name: 'description', content: "Un auto-positionnement en 24 situations concrètes — pour identifier vos forces et vos prochains leviers managériaux. Résultat immédiat." },
+    { property: 'og:title', content: 'Diagnostic managérial | WadoCoaching' },
+    { property: 'og:description', content: "24 situations tirées du terrain. Un profil visuel pour savoir où concentrer vos efforts." },
     { property: 'og:image', content: 'https://www.wadocoaching.com/images/coaching-manager.jpg' },
     { property: 'og:url', content: 'https://www.wadocoaching.com/diagnostic/' },
     { name: 'twitter:card', content: 'summary_large_image' },
