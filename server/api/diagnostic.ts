@@ -3,6 +3,7 @@ interface AxeResult {
   score: number
   niveau: string
   restitution: string
+  sousDimensions?: Record<string, number>
 }
 
 interface DiagnosticBody {
@@ -17,7 +18,7 @@ function buildEmailHtml(data: Omit<DiagnosticBody, 'email'>): string {
   const { axes = [], forceAxe, levierAxe, profilMessage } = data
 
   const axeRows = axes
-    .map(({ axe, score, niveau, restitution }) => {
+    .map(({ axe, score, niveau, restitution, sousDimensions }) => {
       const barFill = Math.round(score)
       return `
       <tr>
@@ -46,9 +47,35 @@ function buildEmailHtml(data: Omit<DiagnosticBody, 'email'>): string {
             </tr>
             <tr>
               <td colspan="2">
-                <p style="margin:0;font-family:Arial,sans-serif;font-size:14px;color:#67768E;line-height:1.75;">${restitution}</p>
+                <p style="margin:0 0 14px;font-family:Arial,sans-serif;font-size:14px;color:#67768E;line-height:1.75;">${restitution}</p>
               </td>
             </tr>
+            ${sousDimensions ? `
+            <tr>
+              <td colspan="2" style="padding-top:4px;">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #E0E4E8;padding-top:12px;">
+                  ${Object.entries(sousDimensions).map(([dim, sdScore]) => `
+                  <tr>
+                    <td style="padding:4px 0;">
+                      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                        <tr>
+                          <td width="200" style="font-family:Arial,sans-serif;font-size:12px;color:#67768E;padding-right:12px;">${dim}</td>
+                          <td style="padding-right:10px;">
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#E0E4E8;border-radius:3px;height:4px;">
+                              <tr>
+                                <td width="${sdScore}%" style="background:#1ABAEA;opacity:0.7;border-radius:3px;height:4px;"></td>
+                                <td width="${100 - sdScore}%"></td>
+                              </tr>
+                            </table>
+                          </td>
+                          <td width="28" align="right" style="font-family:Arial,sans-serif;font-size:12px;font-weight:bold;color:#152034;">${sdScore}</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>`).join('')}
+                </table>
+              </td>
+            </tr>` : ''}
           </table>
         </td>
       </tr>`

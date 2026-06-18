@@ -83,19 +83,18 @@
         </p>
 
         <!-- Échelle -->
-        <div class="flex gap-2">
+        <div class="grid grid-cols-5 gap-2">
           <button
             v-for="item in ECHELLE"
             :key="item.valeur"
             type="button"
-            class="flex items-center justify-center py-4 px-3 rounded-xl border transition-all cursor-pointer
-                   flex-1 text-center"
+            class="flex items-center justify-center py-4 px-2 rounded-xl border transition-all cursor-pointer text-center"
             :class="reponseActuelle === item.valeur
               ? 'bg-accent border-accent text-white'
               : 'border-border bg-white text-primary hover:border-accent hover:bg-accent/5'"
             @click="selectionner(item.valeur)"
           >
-            <span class="font-medium text-[0.8rem] leading-tight text-center">
+            <span class="font-medium text-[0.75rem] leading-tight text-center">
               {{ item.label }}
             </span>
           </button>
@@ -324,6 +323,19 @@
             <p class="text-[0.875rem] text-text-light leading-[1.8] italic">
               {{ RESTITUTION[axe][niveauLabel(scores[axe])] || 'Texte de restitution à venir.' }}
             </p>
+            <div class="mt-5 pt-5 border-t border-border flex flex-col gap-3">
+              <div
+                v-for="(sdScore, sdName) in sousDimScores[axe]"
+                :key="sdName"
+                class="flex items-center gap-3"
+              >
+                <span class="text-[0.78rem] text-text-light leading-tight shrink-0" style="min-width:185px">{{ sdName }}</span>
+                <div class="flex-1 h-1 bg-border rounded-full overflow-hidden">
+                  <div class="h-full bg-accent/70 rounded-full" :style="{ width: sdScore + '%' }" />
+                </div>
+                <span class="text-[0.8rem] font-semibold text-primary w-7 text-right shrink-0">{{ sdScore }}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -360,30 +372,30 @@ type Axe = typeof AXES[number]
 type Niveau = 'À explorer' | 'En chemin' | 'Solide' | 'Ancré'
 
 const QUESTIONS = [
-  { id: 'EA1', axe: 'Écoute active', sens: 'normal', contexte: "Un collaborateur vient me voir, visiblement contrarié, pour me parler d'un problème sur son projet.", enonce: "Je le laisse dérouler son explication jusqu'au bout, même quand je crois déjà avoir saisi de quoi il s'agit." },
-  { id: 'EA2', axe: 'Écoute active', sens: 'normal', contexte: "Un collaborateur m'expose un sujet sur lequel il attend mon point de vue.", enonce: "Avant de lui donner mon avis, je redis dans mes mots ce que j'ai compris de ce qu'il recherche." },
-  { id: 'EA3', axe: 'Écoute active', sens: 'inverse', contexte: '', enonce: "Quand on me raconte une situation, je me surprends à avoir déjà une opinion avant la fin du récit." },
-  { id: 'EA4', axe: 'Écoute active', sens: 'normal', contexte: "En réunion d'équipe ou en point individuel avec un collaborateur.", enonce: "Je me surprends à relever un décalage entre les mots d'un collaborateur et ce que dit son non-verbal — le ton, le regard, la posture, les silences." },
-  { id: 'EA5', axe: 'Écoute active', sens: 'inverse', contexte: '', enonce: "Quand je crois avoir compris, j'enchaîne sans toujours laisser la personne confirmer qu'on parle bien de la même chose." },
-  { id: 'EA6', axe: 'Écoute active', sens: 'inverse', contexte: "Un collaborateur vient me parler d'une difficulté qu'il rencontre.", enonce: "Je passe assez vite en mode solution, avant d'avoir vraiment creusé ce qui se joue pour lui." },
-  { id: 'FB1', axe: 'Culture du feedback', sens: 'normal', contexte: "Un collaborateur compétent me rend un travail correct, mais en dessous de ce qu'il sait faire.", enonce: "Je lui en parle rapidement, plutôt que de laisser passer en me disant que c'est acceptable." },
-  { id: 'FB2', axe: 'Culture du feedback', sens: 'normal', contexte: "Je dois faire un retour à un collaborateur sur quelque chose qui n'a pas bien fonctionné.", enonce: "Je lui expose les faits concrets sur lesquels je m'appuie, plutôt qu'une impression générale." },
-  { id: 'FB3', axe: 'Culture du feedback', sens: 'normal', contexte: "Un de mes collaborateurs est performant : il atteint souvent ses objectifs, et les dépasse parfois.", enonce: "Je prends le temps de lui faire un retour pour souligner ce qu'il réussit, sans attendre qu'un problème survienne." },
-  { id: 'FB4', axe: 'Culture du feedback', sens: 'normal', contexte: "Un collaborateur ou un collègue me fait un retour critique sur ma façon de faire.", enonce: "Je lui pose des questions pour creuser ce qu'il a observé, au lieu de répondre point par point." },
-  { id: 'FB5', axe: 'Culture du feedback', sens: 'inverse', contexte: "Un collaborateur fait quelque chose qui m'agace sur le moment.", enonce: "Je lui dis à chaud ce qui m'agace, sans distinguer ce qui doit se dire tout de suite de ce qui se dira mieux à froid." },
-  { id: 'FB6', axe: 'Culture du feedback', sens: 'inverse', contexte: "Je travaille depuis plusieurs mois avec la même équipe.", enonce: "Je leur demande rarement comment ils perçoivent ma façon de manager ou de communiquer." },
-  { id: 'AS1', axe: 'Assertivité', sens: 'normal', contexte: "Mon responsable m'ajoute un dossier urgent alors que ma charge est déjà pleine.", enonce: "Je lui dis que ça ne tiendra pas sans revoir les priorités, au lieu d'accepter et de me débrouiller." },
-  { id: 'AS2', axe: 'Assertivité', sens: 'normal', contexte: "En réunion, un sujet se discute et j'ai un avis qui n'a pas encore été exprimé.", enonce: "Je prends la parole pour le donner, plutôt que d'attendre qu'on me sollicite ou de le garder pour moi." },
-  { id: 'AS3', axe: 'Assertivité', sens: 'normal', contexte: "Sur mon projet, j'avance bien, mais je commence à atteindre mes limites. Un collègue compétent ou plus disponible pourrait m'aider.", enonce: "Je vais le voir pour lui exprimer ma demande, plutôt que de continuer à pousser seul." },
-  { id: 'AS4', axe: 'Assertivité', sens: 'normal', contexte: "Mon responsable me confie une mission, mais ce qu'il attend exactement n'est pas clair pour moi.", enonce: "Je lui demande de préciser ce qu'il attend, plutôt que de partir avec ma propre interprétation." },
-  { id: 'AS5', axe: 'Assertivité', sens: 'inverse', contexte: '', enonce: "Pour éviter un conflit, il m'arrive d'accepter des choses avec lesquelles je ne suis pas d'accord." },
-  { id: 'AS6', axe: 'Assertivité', sens: 'inverse', contexte: "En réunion ou en groupe, je ne suis pas d'accord ou j'ai un autre angle, mais l'ambiance ne s'y prête pas vraiment.", enonce: "Je garde mon avis pour moi, en me disant que ce n'est pas le bon moment." },
-  { id: 'AU1', axe: "Cultiver l'autonomie", sens: 'normal', contexte: "Un sujet important et visible arrive dans mon périmètre — le genre que je pourrais piloter moi-même pour être sûr du résultat.", enonce: "J'en confie la responsabilité à un de mes collaborateurs, en le laissant le porter à sa façon." },
-  { id: 'AU2', axe: "Cultiver l'autonomie", sens: 'normal', contexte: "J'ai confié un sujet à un collaborateur et il avance dessus.", enonce: "Je reste joignable s'il a besoin, sans aller vérifier de moi-même où il en est." },
-  { id: 'AU3', axe: "Cultiver l'autonomie", sens: 'normal', contexte: "Un collaborateur prend une initiative qui se solde par une erreur, avec des conséquences concrètes.", enonce: "Ma première réaction est de regarder avec lui ce qu'on en apprend, plutôt que de chercher ce qui a coincé chez lui." },
-  { id: 'AU4', axe: "Cultiver l'autonomie", sens: 'normal', contexte: "Un collaborateur vient me demander de valider une décision qu'il a tout à fait les moyens de prendre seul.", enonce: "Je lui renvoie la décision, quitte à ce qu'il ne fasse pas exactement le choix que j'aurais fait." },
-  { id: 'AU5', axe: "Cultiver l'autonomie", sens: 'inverse', contexte: "J'ai délégué un sujet, mais le collaborateur s'y prend d'une façon différente de la mienne.", enonce: "J'ai tendance à reprendre la main pour le ramener vers la méthode qui me paraît la bonne." },
-  { id: 'AU6', axe: "Cultiver l'autonomie", sens: 'inverse', contexte: '', enonce: "J'ai besoin de savoir précisément où en est chaque dossier à tout moment." },
+  { id: 'EA1', axe: 'Écoute active', sousDimension: "Laisser l'espace / présence", type: 'Scénario', sens: 'normal', contexte: "Un collaborateur vient me voir, visiblement contrarié, pour me parler d'un problème sur son projet.", enonce: "Je le laisse dérouler son explication jusqu'au bout, même quand je crois déjà avoir saisi de quoi il s'agit." },
+  { id: 'EA2', axe: 'Écoute active', sousDimension: 'Capter et vérifier la compréhension', type: 'Mise en situation', sens: 'normal', contexte: "Un collaborateur m'expose un sujet sur lequel il attend mon point de vue.", enonce: "Avant de lui donner mon avis, je redis dans mes mots ce que j'ai compris de ce qu'il recherche." },
+  { id: 'EA3', axe: 'Écoute active', sousDimension: 'Suspension du jugement', type: 'Affirmation', sens: 'inverse', contexte: '', enonce: "Quand on me raconte une situation, je me surprends à avoir déjà une opinion avant la fin du récit." },
+  { id: 'EA4', axe: 'Écoute active', sousDimension: 'Capter et vérifier la compréhension', type: 'Mise en situation', sens: 'normal', contexte: "En réunion d'équipe ou en point individuel avec un collaborateur.", enonce: "Je me surprends à relever un décalage entre les mots d'un collaborateur et ce que dit son non-verbal — le ton, le regard, la posture, les silences." },
+  { id: 'EA5', axe: 'Écoute active', sousDimension: "Laisser l'espace / présence", type: 'Affirmation', sens: 'inverse', contexte: '', enonce: "Quand je crois avoir compris, j'enchaîne sans toujours laisser la personne confirmer qu'on parle bien de la même chose." },
+  { id: 'EA6', axe: 'Écoute active', sousDimension: 'Suspension du jugement', type: 'Mise en situation', sens: 'inverse', contexte: "Un collaborateur vient me parler d'une difficulté qu'il rencontre.", enonce: "Je passe assez vite en mode solution, avant d'avoir vraiment creusé ce qui se joue pour lui." },
+  { id: 'FB1', axe: 'Culture du feedback', sousDimension: 'Gérer les retours à chaud et à froid', type: 'Scénario', sens: 'normal', contexte: "Un collaborateur compétent me rend un travail correct, mais en dessous de ce qu'il sait faire.", enonce: "Je lui en parle rapidement, plutôt que de laisser passer en me disant que c'est acceptable." },
+  { id: 'FB2', axe: 'Culture du feedback', sousDimension: 'Qualité et complétude du feedback', type: 'Mise en situation', sens: 'normal', contexte: "Je dois faire un retour à un collaborateur sur quelque chose qui n'a pas bien fonctionné.", enonce: "Je lui expose les faits concrets sur lesquels je m'appuie, plutôt qu'une impression générale." },
+  { id: 'FB3', axe: 'Culture du feedback', sousDimension: 'Qualité et complétude du feedback', type: 'Mise en situation', sens: 'normal', contexte: "Un de mes collaborateurs est performant : il atteint souvent ses objectifs, et les dépasse parfois.", enonce: "Je prends le temps de lui faire un retour pour souligner ce qu'il réussit, sans attendre qu'un problème survienne." },
+  { id: 'FB4', axe: 'Culture du feedback', sousDimension: 'Demander et recevoir', type: 'Mise en situation', sens: 'normal', contexte: "Un collaborateur ou un collègue me fait un retour critique sur ma façon de faire.", enonce: "Je lui pose des questions pour creuser ce qu'il a observé, au lieu de répondre point par point." },
+  { id: 'FB5', axe: 'Culture du feedback', sousDimension: 'Gérer les retours à chaud et à froid', type: 'Mise en situation', sens: 'inverse', contexte: "Un collaborateur fait quelque chose qui m'agace sur le moment.", enonce: "Je lui dis à chaud ce qui m'agace, sans distinguer ce qui doit se dire tout de suite de ce qui se dira mieux à froid." },
+  { id: 'FB6', axe: 'Culture du feedback', sousDimension: 'Demander et recevoir', type: 'Mise en situation', sens: 'inverse', contexte: "Je travaille depuis plusieurs mois avec la même équipe.", enonce: "Je leur demande rarement comment ils perçoivent ma façon de manager ou de communiquer." },
+  { id: 'AS1', axe: 'Assertivité', sousDimension: 'Poser ses limites et savoir dire non', type: 'Scénario', sens: 'normal', contexte: "Mon responsable m'ajoute un dossier urgent alors que ma charge est déjà pleine.", enonce: "Je lui dis que ça ne tiendra pas sans revoir les priorités, au lieu d'accepter et de me débrouiller." },
+  { id: 'AS2', axe: 'Assertivité', sousDimension: 'Exprimer aisément son point de vue', type: 'Mise en situation', sens: 'normal', contexte: "En réunion, un sujet se discute et j'ai un avis qui n'a pas encore été exprimé.", enonce: "Je prends la parole pour le donner, plutôt que d'attendre qu'on me sollicite ou de le garder pour moi." },
+  { id: 'AS3', axe: 'Assertivité', sousDimension: 'Expliciter ses demandes', type: 'Mise en situation', sens: 'normal', contexte: "Sur mon projet, j'avance bien, mais je commence à atteindre mes limites. Un collègue compétent ou plus disponible pourrait m'aider.", enonce: "Je vais le voir pour lui exprimer ma demande, plutôt que de continuer à pousser seul." },
+  { id: 'AS4', axe: 'Assertivité', sousDimension: 'Expliciter ses demandes', type: 'Mise en situation', sens: 'normal', contexte: "Mon responsable me confie une mission, mais ce qu'il attend exactement n'est pas clair pour moi.", enonce: "Je lui demande de préciser ce qu'il attend, plutôt que de partir avec ma propre interprétation." },
+  { id: 'AS5', axe: 'Assertivité', sousDimension: 'Poser ses limites et savoir dire non', type: 'Affirmation', sens: 'inverse', contexte: '', enonce: "Pour éviter un conflit, il m'arrive d'accepter des choses avec lesquelles je ne suis pas d'accord." },
+  { id: 'AS6', axe: 'Assertivité', sousDimension: 'Exprimer aisément son point de vue', type: 'Mise en situation', sens: 'inverse', contexte: "En réunion ou en groupe, je ne suis pas d'accord ou j'ai un autre angle, mais l'ambiance ne s'y prête pas vraiment.", enonce: "Je garde mon avis pour moi, en me disant que ce n'est pas le bon moment." },
+  { id: 'AU1', axe: "Cultiver l'autonomie", sousDimension: 'Déléguer pour de vrai', type: 'Mise en situation', sens: 'normal', contexte: "Un sujet important et visible arrive dans mon périmètre — le genre que je pourrais piloter moi-même pour être sûr du résultat.", enonce: "J'en confie la responsabilité à un de mes collaborateurs, en le laissant le porter à sa façon." },
+  { id: 'AU2', axe: "Cultiver l'autonomie", sousDimension: 'Faire confiance sans se désengager', type: 'Mise en situation', sens: 'normal', contexte: "J'ai confié un sujet à un collaborateur et il avance dessus.", enonce: "Je reste joignable s'il a besoin, sans aller vérifier de moi-même où il en est." },
+  { id: 'AU3', axe: "Cultiver l'autonomie", sousDimension: "Droit à l'erreur et apprentissage", type: 'Mise en situation', sens: 'normal', contexte: "Un collaborateur prend une initiative qui se solde par une erreur, avec des conséquences concrètes.", enonce: "Ma première réaction est de regarder avec lui ce qu'on en apprend, plutôt que de chercher ce qui a coincé chez lui." },
+  { id: 'AU4', axe: "Cultiver l'autonomie", sousDimension: "Droit à l'erreur et apprentissage", type: 'Scénario', sens: 'normal', contexte: "Un collaborateur vient me demander de valider une décision qu'il a tout à fait les moyens de prendre seul.", enonce: "Je lui renvoie la décision, quitte à ce qu'il ne fasse pas exactement le choix que j'aurais fait." },
+  { id: 'AU5', axe: "Cultiver l'autonomie", sousDimension: 'Déléguer pour de vrai', type: 'Mise en situation', sens: 'inverse', contexte: "J'ai délégué un sujet, mais le collaborateur s'y prend d'une façon différente de la mienne.", enonce: "J'ai tendance à reprendre la main pour le ramener vers la méthode qui me paraît la bonne." },
+  { id: 'AU6', axe: "Cultiver l'autonomie", sousDimension: 'Faire confiance sans se désengager', type: 'Affirmation', sens: 'inverse', contexte: '', enonce: "J'ai besoin de savoir précisément où en est chaque dossier à tout moment." },
 ] as const
 
 const ECHELLE = [
@@ -507,6 +519,7 @@ async function envoyerEmail() {
           score: scores.value[axe],
           niveau: niveauLabel(scores.value[axe]),
           restitution: RESTITUTION[axe][niveauLabel(scores.value[axe])],
+          sousDimensions: sousDimScores.value[axe],
         })),
         forceAxe: forceAxe.value,
         levierAxe: levierAxe.value,
@@ -556,6 +569,25 @@ const scores = computed(() =>
     }),
   ) as Record<Axe, number>,
 )
+
+const sousDimScores = computed(() => {
+  const result = {} as Record<Axe, Record<string, number>>
+  for (const axe of AXES) {
+    result[axe] = {}
+    const axeQs = QUESTIONS.filter(q => q.axe === axe)
+    const dims = [...new Set(axeQs.map(q => q.sousDimension))]
+    for (const dim of dims) {
+      const qs = axeQs.filter(q => q.sousDimension === dim)
+      const brut = qs.reduce((sum, q) => {
+        const r = reponses.value[q.id] ?? 0
+        return sum + (q.sens === 'inverse' ? 6 - r : r)
+      }, 0)
+      const n = qs.length
+      result[axe][dim] = Math.min(100, Math.max(0, Math.round((brut - n) / (n * 4) * 100)))
+    }
+  }
+  return result
+})
 
 const forceAxe  = computed<Axe>(() => [...AXES].reduce((a, b) => scores.value[a] >= scores.value[b] ? a : b) as Axe)
 const levierAxe = computed<Axe>(() => [...AXES].reduce((a, b) => scores.value[a] <= scores.value[b] ? a : b) as Axe)
